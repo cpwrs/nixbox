@@ -47,16 +47,6 @@ let user = "carson"; in
   time.timeZone = "America/Chicago";
   
   programs = {
-    # Shell
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestions.enable = true;
-    };
-    
-    # Needed for GTK stuff.
-    dconf.enable = true;
-    
     # Keys
     gnupg.agent.enable = true;
   };
@@ -74,9 +64,7 @@ let user = "carson"; in
       '';
 
       # startx display manager.
-      displayManager.startx = {
-        enable = true;
-      };
+      displayManager.startx.enable = true;
 
       # Tiling window manager.
       windowManager.spectrwm.enable = true;
@@ -117,12 +105,11 @@ let user = "carson"; in
     ${user} = {
       isNormalUser = true;
       extraGroups  = [ "wheel" ];
-      shell = pkgs.zsh;
       packages = with pkgs; [
-	kitty
-	google-chrome
-	dmenu
-	htop
+				kitty
+				google-chrome
+				dmenu
+				htop
       ];
     };
   };
