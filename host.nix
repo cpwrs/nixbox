@@ -47,8 +47,16 @@ let user = "carson"; in
   time.timeZone = "America/Chicago";
   
   programs = {
+		dconf.enable = true;
     # Keys
     gnupg.agent.enable = true;
+		
+		zsh = {
+			enable = true;
+			enableCompletion = true;
+			autosuggestions.enable = true;
+			ohMyZsh.enable = true;
+		};
   };
 
   services = {
@@ -104,6 +112,7 @@ let user = "carson"; in
   users.users = {
     ${user} = {
       isNormalUser = true;
+			shell = pkgs.zsh;
       extraGroups  = [ "wheel" ];
       packages = with pkgs; [
 				kitty
