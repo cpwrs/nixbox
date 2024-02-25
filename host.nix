@@ -48,15 +48,8 @@ let user = "carson"; in
   
   programs = {
 		dconf.enable = true;
-    # Keys
     gnupg.agent.enable = true;
-		
-		zsh = {
-			enable = true;
-			enableCompletion = true;
-			autosuggestions.enable = true;
-			ohMyZsh.enable = true;
-		};
+		zsh.enable = true;
   };
 
   services = {
@@ -123,6 +116,7 @@ let user = "carson"; in
     };
   };
 
+	# Global packages
   environment.systemPackages = with pkgs; [ 
     tmux
     git
