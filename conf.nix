@@ -1,10 +1,10 @@
-{ config, inputs, lib, pkgs, agenix, ... }:
+{ config, inputs, lib, pkgs, ... }:
 let user = "carson"; in
 {
-  # Base configurations for my operating system.
+  # Services, packages, and configurations for my OS. 
  
-  # Import auto-generated hardware configurations.
-  imports = [ ./hardware-configuration.nix ];
+  # Import hardware configurations.
+  imports = [ ./hardware.nix ];
 
   # Allow unfree software. 
   nixpkgs.config.allowUnfree = true;
@@ -117,13 +117,13 @@ let user = "carson"; in
   };
 
 	# Global packages
-  environment.systemPackages = with pkgs; [ 
-    tmux
-    git
-    unzip
-    pfetch
-    vim
-    xlockmore
+  environment.systemPackages = [ 
+    pkgs.tmux
+    pkgs.git
+    pkgs.unzip
+    pkgs.pfetch
+    pkgs.vim
+    pkgs.xlockmore
   ];
  
   networking = {
@@ -131,5 +131,5 @@ let user = "carson"; in
     hostName = "nixos";
   };
 
-  system.stateVersion = "22.11";
+  system.stateVersion = "24.05";
 }
