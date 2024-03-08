@@ -1,5 +1,4 @@
 { config, inputs, lib, pkgs, ... }:
-let user = "carson"; in
 {
   # Services, packages, and configurations for my OS. 
  
@@ -9,7 +8,7 @@ let user = "carson"; in
   # Allow unfree software. 
   nixpkgs.config.allowUnfree = true;
   nix = {
-    settings.allowed-users = [ "${user}" ];
+    settings.allowed-users = [ "carson" ];
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -103,15 +102,16 @@ let user = "carson"; in
   
   # Add users and their packages.
   users.users = {
-    ${user} = {
+    carson = {
       isNormalUser = true;
 			shell = pkgs.zsh;
       extraGroups  = [ "wheel" ];
-      packages = with pkgs; [
-				kitty
-				google-chrome
-				dmenu
-				htop
+      packages = [
+				pkgs.kitty
+				pkgs.google-chrome
+				pkgs.dmenu
+				pkgs.htop
+        inputs.neovim.packages.x86_64-linux.nvim
       ];
     };
   };
