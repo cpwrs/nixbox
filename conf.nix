@@ -128,7 +128,7 @@
  
   networking = {
     networkmanager.enable = true;
-    hostName = "nixos";
+    hostName = "nixbox";
   };
 
   system.stateVersion = "24.05";

@@ -1,14 +1,14 @@
 {
-	description = "Unix-like OS & dev environment";
+	description = "Unix-like OS & global dev environment";
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    neovim.url = "path:/home/carson/flakes/neovim";
+    neovim.url = "github:crpowers/envy";
 	};
 
 	outputs = { self, nixpkgs, ... } @ inputs: {
 		nixosConfigurations = {
-			nixos = nixpkgs.lib.nixosSystem {
+			nixbox = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				# Pass all inputs to the modules.
 				specialArgs.inputs = inputs;
