@@ -6,6 +6,6 @@
 ---
 
 Nixbox is a NixOS Uakari configration. 
-It sets up essential services, a GUI environment, and package I use for development.
+It sets up essential services, a GUI environment, and packages I use for development.
 
 ---
