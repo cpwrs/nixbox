@@ -48,7 +48,6 @@
   programs = {
 		dconf.enable = true;
     gnupg.agent.enable = true;
-		zsh.enable = true;
   };
 
   services = {
@@ -63,7 +62,8 @@
         Option      "TripleBuffer" "on"
       '';
 
-      # startx display manager.
+      # Not using a full display manager, 
+      # I just use run startx from the shell after login if needed.
       displayManager.startx.enable = true;
 
       # Tiling window manager.
@@ -80,7 +80,6 @@
     };
     
     openssh.enable = true;
-		blueman.enable = true;
   };
 
   # Video and Sound
