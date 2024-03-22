@@ -103,6 +103,7 @@
   users.users = {
     carson = {
       isNormalUser = true;
+      shell = pkgs.bash;
       extraGroups  = [ "wheel" ];
       packages = [
 				pkgs.kitty
