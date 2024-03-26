@@ -101,11 +101,9 @@
   
   # Add users and their packages.
   users = {
-    defaultUserShell = pkgs.bash; 
     users = {
       carson = {
         isNormalUser = true;
-        shell = pkgs.bash;
         extraGroups  = [ "wheel" ];
         packages = [
 				  pkgs.kitty
