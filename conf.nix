@@ -48,7 +48,6 @@
   programs = {
 		dconf.enable = true;
     gnupg.agent.enable = true;
-    bash.enable = true;
   };
 
   services = {
