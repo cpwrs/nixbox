@@ -110,7 +110,8 @@
 				  pkgs.google-chrome
 				  pkgs.dmenu
 				  pkgs.htop
-          inputs.neovim.packages.x86_64-linux.nvim
+          pkgs.feh
+          inputs.neovim.packages.x86_64-linux.default
         ];
       };
     };
