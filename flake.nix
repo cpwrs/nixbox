@@ -1,5 +1,5 @@
 {
-	description = "Unix-like OS & global dev environment";
+	description = "NixOS 24.05 config for my desktop";
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
