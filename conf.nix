@@ -111,6 +111,7 @@
 				  pkgs.dmenu
 				  pkgs.htop
           pkgs.feh
+          pkgs.wezterm
           inputs.neovim.packages.x86_64-linux.default
         ];
       };
