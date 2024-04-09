@@ -8,7 +8,7 @@
 
 	outputs = { self, nixpkgs, ... } @ inputs: {
 		nixosConfigurations = {
-			nixbox = nixpkgs.lib.nixosSystem {
+			box = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				# Pass all inputs to the modules.
 				specialArgs.inputs = inputs;

@@ -130,7 +130,7 @@
  
   networking = {
     networkmanager.enable = true;
-    hostName = "nixbox";
+    hostName = "box";
   };
 
   system.stateVersion = "24.05";
