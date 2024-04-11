@@ -87,7 +87,7 @@
     fonts = with pkgs; [
       (nerdfonts.override { fonts = [ "Hack" ]; } )
     ];
-  }
+  };
 
   # Video and Sound
   sound.enable = true;
