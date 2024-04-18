@@ -24,11 +24,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1712815858,
-        "narHash": "sha256-cDwp8ktpqU2sMfQ6wzfYApYAweJLZMwiBkZ18Zc+Wew=",
+        "lastModified": 1713476862,
+        "narHash": "sha256-eciV9LXLlJ+Qy+C+KtN4cqXo1H2VuqtZsJkZ+8phpPY=",
         "owner": "crpowers",
         "repo": "envy",
-        "rev": "3a6a561dde31869b513f15170da2d2ed6c3e2e8f",
+        "rev": "78fa337ff11dd395b8d77664a8209bedef54d6d7",
         "type": "github"
       },
       "original": {
@@ -79,11 +79,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1712608508,
-        "narHash": "sha256-vMZ5603yU0wxgyQeHJryOI+O61yrX2AHwY6LOFyV1gM=",
+        "lastModified": 1713248628,
+        "narHash": "sha256-NLznXB5AOnniUtZsyy/aPWOk8ussTuePp2acb9U+ISA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4cba8b53da471aea2ab2b0c1f30a81e7c451f4b6",
+        "rev": "5672bc9dbf9d88246ddab5ac454e82318d094bb8",
         "type": "github"
       },
       "original": {
