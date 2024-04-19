@@ -48,6 +48,11 @@
 		dconf.enable = true;
     gnupg.agent.enable = true;
     bash.enableLsColors = false;
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
   };
 
   services = {
