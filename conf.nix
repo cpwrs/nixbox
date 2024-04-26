@@ -127,6 +127,7 @@
           pkgs.wezterm
           pkgs.picom
           pkgs.pfetch
+          pkgs.ripgrep
           inputs.neovim.packages.x86_64-linux.default
         ];
       };
