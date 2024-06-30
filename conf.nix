@@ -60,13 +60,6 @@
       enable = true;
       videoDrivers = [ "nvidia" ];
      
-      # Fix screen tearing.
-      screenSection = ''
-        Option	    "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
-        Option      "AllowIndirectGLXProtocol" "off"
-        Option      "TripleBuffer" "on"
-      '';
-
       # Not using a full display manager, 
       # I just use run startx from the shell after login if needed.
       displayManager.startx.enable = true;
@@ -103,13 +96,11 @@
 		bluetooth = {
 			enable = true;
 			powerOnBoot = true;
-      settings = {
-        General = {
-          ControllerMode = "bredr";
-        };
-      };
  		};
-    nvidia.modesetting.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
   };
  
   
@@ -128,6 +119,7 @@
           pkgs.picom
           pkgs.pfetch
           pkgs.ripgrep
+          pkgs.gh
           inputs.neovim.packages.x86_64-linux.default
         ];
       };

@@ -2,7 +2,7 @@
 	description = "NixOS 24.05 config for my desktop";
 
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     neovim.url = "github:crpowers/envy";
 	};
 
