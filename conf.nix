@@ -46,7 +46,7 @@
           pkgs.pfetch
           pkgs.ripgrep
           pkgs.gh
-          inputs.neovim.packages.x86_64-linux.default
+	  inputs.neovim.packages.x86_64-linux.default
         ];
       };
     };
