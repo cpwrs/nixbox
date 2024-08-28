@@ -9,7 +9,6 @@
   nixpkgs.config.allowUnfree = true;
   nix = {
     settings.allowed-users = [ "carson" ];
-    package = pkgs.nixVersions.latest;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -24,7 +23,6 @@
       };
       efi.canTouchEfiVariables = true;
     }; 
-    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   # Select internationalisation properties.
@@ -87,7 +85,6 @@
   # Video and Sound
   sound.enable = true;
   hardware = {
-    pulseaudio.enable = true;
     opengl = {
       enable = true;
       driSupport32Bit = true;
@@ -111,10 +108,10 @@
         isNormalUser = true;
         extraGroups  = [ "wheel" ];
         packages = [
-				  pkgs.google-chrome
+				  pkgs.chromium
 				  pkgs.dmenu
 				  pkgs.htop
-          pkgs.feh
+          pkgs.hsetroot
           pkgs.wezterm
           pkgs.picom
           pkgs.pfetch
