@@ -94,6 +94,10 @@
 			enable = true;
 			powerOnBoot = true;
  		};
+    pulseaudio = {
+      enable = true;
+      support32Bit = true;
+    };
     nvidia = {
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
