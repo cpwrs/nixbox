@@ -119,6 +119,7 @@
           pkgs.wezterm
           pkgs.picom
           pkgs.pfetch
+          pkgs.scrot
           pkgs.ripgrep
           pkgs.gh
           inputs.neovim.packages.x86_64-linux.default
