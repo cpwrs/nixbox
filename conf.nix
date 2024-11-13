@@ -122,7 +122,13 @@
           pkgs.scrot
           pkgs.ripgrep
           pkgs.gh
-          inputs.neovim.packages.x86_64-linux.default
+
+          # Neovim nightly and plugins
+          inputs.neovim-nightly.packages.${pkgs.system}.default
+          pkgs.vimPlugins.oil-nvim
+          pkgs.vimPlugins.telescope-nvim
+          pkgs.vimPlugins.nvim-lspconfig
+          pkgs.vimPlugins.nvim-treesitter.withAllGrammars
         ];
       };
     };
