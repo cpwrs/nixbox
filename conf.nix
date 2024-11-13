@@ -111,24 +111,31 @@
       carson = {
         isNormalUser = true;
         extraGroups  = [ "wheel" ];
-        packages = [
-				  pkgs.chromium
-				  pkgs.dmenu
-				  pkgs.htop
-          pkgs.hsetroot
-          pkgs.wezterm
-          pkgs.picom
-          pkgs.pfetch
-          pkgs.scrot
-          pkgs.ripgrep
-          pkgs.gh
+        packages = with pkgs; [
+				  chromium
+				  dmenu
+				  htop
+          hsetroot
+          wezterm
+          picom
+          pfetch
+          scrot
+          ripgrep
+          gh
 
-          # Neovim nightly and plugins
-          inputs.neovim-nightly.packages.${pkgs.system}.default
-          pkgs.vimPlugins.oil-nvim
-          pkgs.vimPlugins.telescope-nvim
-          pkgs.vimPlugins.nvim-lspconfig
-          pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+          # Wrap neovim with the plugin the dependencies that my envy config requires
+          (wrapNeovim neovim {
+            configure = {
+              packages.envyDependencies = with vimPlugins; {
+                start = [
+                  telescope-nvim
+                  nvim-treesitter.withAllGrammars
+                  nvim-lspconfig
+                  oil-nvim
+                ];
+              }
+            }
+          })
         ];
       };
     };
