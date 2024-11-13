@@ -10,7 +10,7 @@
     let
       # Overlay neovim with the nightly version
       overlays = [
-        neovim-nightly.overlays.default
+        inputs.neovim-nightly.overlays.default
       ];
     in
     {

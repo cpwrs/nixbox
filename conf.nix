@@ -124,7 +124,7 @@
           gh
 
           # Wrap neovim with the plugin the dependencies that my envy config requires
-          (wrapNeovim neovim {
+          (wrapNeovim neovim-unwrapped {
             configure = {
               packages.envyDependencies = with vimPlugins; {
                 start = [
@@ -133,8 +133,8 @@
                   nvim-lspconfig
                   oil-nvim
                 ];
-              }
-            }
+              };
+            };
           })
         ];
       };
