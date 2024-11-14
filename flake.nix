@@ -2,8 +2,8 @@
   description = "NixOS 24.05 config for my desktop";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    neovim-nightly= {
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};

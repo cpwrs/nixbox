@@ -43,7 +43,7 @@
   time.timeZone = "America/Chicago";
   
   programs = {
-		dconf.enable = true;
+    dconf.enable = true;
     gnupg.agent.enable = true;
     bash.enableLsColors = false;
 
@@ -71,7 +71,12 @@
         options = "ctrl:swapcaps";
       };
     };
-    
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
     openssh.enable = true;
   };
 
@@ -83,22 +88,17 @@
   };
 
   # Video and Sound
-  sound.enable = true;
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport32Bit = true;
-      driSupport = true;
+      enable32Bit = true;
     };
-		bluetooth = {
-			enable = true;
-			powerOnBoot = true;
- 		};
-    pulseaudio = {
+    bluetooth = {
       enable = true;
-      support32Bit = true;
+      powerOnBoot = true;
     };
     nvidia = {
+      open = true;
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
@@ -114,7 +114,7 @@
         packages = with pkgs; [
           chromium
           dmenu
-					htop
+          htop
           hsetroot
           wezterm
           picom
@@ -123,13 +123,14 @@
           ripgrep
           gh
 
-          # Wrap neovim with the plugin the dependencies that my envy config requires
+          # Wrap neovim with the plugin dependencies that my envy config requires
           (wrapNeovim neovim {
             configure = {
-	    				customRC = ''
-								set runtimepath+=~/.config/nvim
-								luafile ~/.config/nvim/init.lua
-							'';
+              # Add config to runtimepath, source init.lua
+              customRC = ''
+                set runtimepath+=~/.config/nvim
+                luafile ~/.config/nvim/init.lua
+              '';
               packages.envyDependencies = with vimPlugins; {
                 start = [
                   telescope-nvim
@@ -145,7 +146,7 @@
     };
   };
 
-	# Global packages
+  # Global packages
   environment.systemPackages = [ 
     pkgs.tmux
     pkgs.git
