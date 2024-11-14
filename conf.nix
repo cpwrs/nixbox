@@ -105,16 +105,16 @@
   };
  
   
-  # Add users and their packages.
+  # Add users and their packages.-
   users = {
     users = {
       carson = {
         isNormalUser = true;
         extraGroups  = [ "wheel" ];
         packages = with pkgs; [
-				  chromium
-				  dmenu
-				  htop
+          chromium
+          dmenu
+					htop
           hsetroot
           wezterm
           picom
@@ -124,8 +124,12 @@
           gh
 
           # Wrap neovim with the plugin the dependencies that my envy config requires
-          (wrapNeovim neovim-unwrapped {
+          (wrapNeovim neovim {
             configure = {
+	    				customRC = ''
+								set runtimepath+=~/.config/nvim
+								luafile ~/.config/nvim/init.lua
+							'';
               packages.envyDependencies = with vimPlugins; {
                 start = [
                   telescope-nvim
