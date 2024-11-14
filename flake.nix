@@ -3,7 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";    
+    neovim-nightly= {
+      url = "github:nix-community/neovim-nightly-overlay";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
   };
 
   outputs = { self, nixpkgs, ... } @ inputs:
