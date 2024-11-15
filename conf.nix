@@ -43,7 +43,7 @@
   time.timeZone = "America/Chicago";
   
   programs = {
-    dconf.enable = true;
+		dconf.enable = true;
     gnupg.agent.enable = true;
     bash.enableLsColors = false;
 
@@ -71,12 +71,7 @@
         options = "ctrl:swapcaps";
       };
     };
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
+    
     openssh.enable = true;
   };
 
@@ -88,65 +83,52 @@
   };
 
   # Video and Sound
+  sound.enable = true;
   hardware = {
-    graphics = {
+    opengl = {
       enable = true;
-      enable32Bit = true;
+      driSupport32Bit = true;
+      driSupport = true;
     };
-    bluetooth = {
+		bluetooth = {
+			enable = true;
+			powerOnBoot = true;
+ 		};
+    pulseaudio = {
       enable = true;
-      powerOnBoot = true;
+      support32Bit = true;
     };
     nvidia = {
-      open = true;
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
  
   
-  # Add users and their packages.-
+  # Add users and their packages.
   users = {
     users = {
       carson = {
         isNormalUser = true;
         extraGroups  = [ "wheel" ];
-        packages = with pkgs; [
-          chromium
-          dmenu
-          htop
-          hsetroot
-          wezterm
-          picom
-          pfetch
-          scrot
-          ripgrep
-          gh
-
-          # Wrap neovim with the plugin dependencies that my envy config requires
-          (wrapNeovim neovim {
-            configure = {
-              # Add config to runtimepath, source init.lua
-              customRC = ''
-                set runtimepath+=~/.config/nvim
-                luafile ~/.config/nvim/init.lua
-              '';
-              packages.envyDependencies = with vimPlugins; {
-                start = [
-                  telescope-nvim
-                  nvim-treesitter.withAllGrammars
-                  nvim-lspconfig
-                  oil-nvim
-                ];
-              };
-            };
-          })
+        packages = [
+				  pkgs.chromium
+				  pkgs.dmenu
+				  pkgs.htop
+          pkgs.hsetroot
+          pkgs.wezterm
+          pkgs.picom
+          pkgs.pfetch
+          pkgs.scrot
+          pkgs.ripgrep
+          pkgs.gh
+          inputs.neovim.packages.x86_64-linux.default
         ];
       };
     };
   };
 
-  # Global packages
+	# Global packages
   environment.systemPackages = [ 
     pkgs.tmux
     pkgs.git
