@@ -3,11 +3,11 @@
     "americano": {
       "flake": false,
       "locked": {
-        "lastModified": 1732052110,
-        "narHash": "sha256-5Gm7s1InwPj7JBH0n4nhjd58VnLr7Bzt0MorGlXVeG8=",
+        "lastModified": 1733190006,
+        "narHash": "sha256-gIhSusjjcGOoOB51N19HuQzuL+LmDhCB7H6Y/z4xDq0=",
         "owner": "cpwrs",
         "repo": "americano.nvim",
-        "rev": "368853a397b180beedb56d39621fc0be38b9bba5",
+        "rev": "d33d25ffade44ba671d40ecffd5da23b4abb15e0",
         "type": "github"
       },
       "original": {
@@ -174,11 +174,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1732082520,
-        "narHash": "sha256-/YitTC6K20yFjB3uHL/a6OgH8m61UEK/aDP8b5TZ350=",
+        "lastModified": 1733191091,
+        "narHash": "sha256-Pbwxgxu9FujG+FGf4A777QBYQyDDRoIBmimyjLhQERw=",
         "owner": "crpowers",
         "repo": "envy",
-        "rev": "55d8c36a21750932bbb7b2b57f28ed060c6730b2",
+        "rev": "fda14779eaa3b50731e6072568bbecf8a992b55b",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1731797254,
-        "narHash": "sha256-df3dJApLPhd11AlueuoN0Q4fHo/hagP75LlM5K1sz9g=",
+        "lastModified": 1733220138,
+        "narHash": "sha256-Yh5XZ9yVurrcYdNTSWxYgW4+EJ0pcOqgM1043z9JaRc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e8c38b73aeb218e27163376a2d617e61a2ad9b59",
+        "rev": "bcb68885668cccec12276bbb379f8f2557aa06ce",
         "type": "github"
       },
       "original": {
