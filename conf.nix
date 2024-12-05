@@ -137,6 +137,7 @@
     pkgs.wget
     pkgs.vim
     pkgs.xlockmore
+    pkgs.xclip
   ];
  
   networking = {
