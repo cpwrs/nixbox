@@ -123,21 +123,22 @@
           pkgs.ripgrep
           pkgs.gh
           inputs.neovim.packages.x86_64-linux.default
+          inputs.wezterm.packages.x86_64-linux.default
         ];
       };
     };
   };
 
 	# Global packages
-  environment.systemPackages = [ 
-    pkgs.tmux
-    pkgs.git
-    pkgs.unzip
-    pkgs.zip
-    pkgs.wget
-    pkgs.vim
-    pkgs.xlockmore
-    pkgs.xclip
+  environment.systemPackages = with pkgs; [ 
+    tmux
+    git
+    unzip
+    zip
+    wget
+    vim
+    xlockmore
+    xclip
   ];
  
   networking = {
