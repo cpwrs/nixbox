@@ -71,6 +71,12 @@
         options = "ctrl:swapcaps";
       };
     };
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+    };
     
     openssh.enable = true;
   };
@@ -83,24 +89,17 @@
   };
 
   # Video and Sound
-  sound.enable = true;
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport32Bit = true;
-      driSupport = true;
     };
 		bluetooth = {
 			enable = true;
 			powerOnBoot = true;
  		};
-    pulseaudio = {
-      enable = true;
-      support32Bit = true;
-    };
     nvidia = {
+      open = false;
       modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
  
@@ -145,5 +144,5 @@
     hostName = "box";
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }
