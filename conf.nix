@@ -116,7 +116,6 @@
 				  pkgs.dmenu
 				  pkgs.htop
           pkgs.hsetroot
-          pkgs.wezterm
           pkgs.picom
           pkgs.pfetch
           pkgs.scrot
