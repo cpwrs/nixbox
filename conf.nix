@@ -3,7 +3,6 @@
   # Services, packages, and configurations for my OS. 
 
   imports = [ 
-    ./evremap.nix # Systemd service to start keyboard remapper
     ./hardware.nix # Auto-gen hardware stuff
   ];
 
@@ -120,7 +119,6 @@
           scrot
           ripgrep
           gh
-          evremap
           fzf
         ] ++ (with inputs; [
           neovim.packages.${pkgs.system}.default
