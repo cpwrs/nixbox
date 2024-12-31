@@ -120,6 +120,7 @@
           ripgrep
           gh
           fzf
+          feh
         ] ++ (with inputs; [
           neovim.packages.${pkgs.system}.default
           wezterm.packages.${pkgs.system}.default
