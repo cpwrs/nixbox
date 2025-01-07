@@ -319,11 +319,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1736276615,
-        "narHash": "sha256-47jJG4dC3EvUaLQNlan9S21fTLCB0ZRb3f1Dc+1X8jk=",
+        "lastModified": 1736282201,
+        "narHash": "sha256-DQpHhsK6/Wserj+VhWdK7qA0TvRilh3UuAyVH7orUB8=",
         "owner": "crpowers",
         "repo": "envy",
-        "rev": "046a927db3020e385ad998a5343614b106af2590",
+        "rev": "b86c80a893da446843440a83948e316cf7d38568",
         "type": "github"
       },
       "original": {
