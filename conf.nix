@@ -108,6 +108,9 @@
     users = {
       carson = {
         isNormalUser = true;
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/jc8By9E//y7jyoVNy7tcjXFCivtuCl972ZhA1ZSBa me@carsonp.net:"
+        ];
         extraGroups  = [ "wheel" ];
         packages = with pkgs; [
           chromium
