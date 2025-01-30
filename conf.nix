@@ -124,6 +124,7 @@
           gh
           fzf
           feh
+          lazygit
         ] ++ (with inputs; [
           neovim.packages.${pkgs.system}.default
           wezterm.packages.${pkgs.system}.default
