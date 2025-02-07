@@ -9,7 +9,7 @@
 
 	outputs = { self, nixpkgs, nixos-wsl, ... } @ inputs: {
 		nixosConfigurations = {
-			box = nixpkgs.lib.nixosSystem {
+			surface = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				# Pass all inputs to the modules.
 				specialArgs.inputs = inputs;
