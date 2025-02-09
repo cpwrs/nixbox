@@ -41,13 +41,13 @@
       carson = {
         isNormalUser = true;
         extraGroups  = [ "wheel" ];
-        packages = [
+        packages = with pkgs; [
 					pkgs.htop
           pkgs.pfetch
           pkgs.ripgrep
           pkgs.gh
-	  inputs.neovim.packages.x86_64-linux.default
-        ];
+        ] ++ (with inputs; [
+          envy.packages.${pkgs.system}.default
       };
     };
   };
