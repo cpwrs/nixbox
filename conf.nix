@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   # Services, packages, and configurations for my OS. 
 
@@ -109,7 +109,7 @@
       carson = {
         isNormalUser = true;
         openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/jc8By9E//y7jyoVNy7tcjXFCivtuCl972ZhA1ZSBa me@carsonp.net:"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/jc8By9E//y7jyoVNy7tcjXFCivtuCl972ZhA1ZSBa me@carsonp.net"
         ];
         extraGroups  = [ "wheel" ];
         packages = with pkgs; [
@@ -126,7 +126,7 @@
           feh
           lazygit
         ] ++ (with inputs; [
-          neovim.packages.${pkgs.system}.default
+          envy.packages.${pkgs.system}.default
           wezterm.packages.${pkgs.system}.default
         ]);
       };
@@ -148,6 +148,11 @@
   networking = {
     networkmanager.enable = true;
     hostName = "box";
+
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 22 ];
+    };
   };
 
   system.stateVersion = "24.11";
