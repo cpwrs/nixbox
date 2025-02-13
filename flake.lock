@@ -3,11 +3,11 @@
     "americano": {
       "flake": false,
       "locked": {
-        "lastModified": 1738955631,
-        "narHash": "sha256-aufLGA8IXmoVI33HnA3zgMZVlbl27Nc6VTEv0kv87a4=",
+        "lastModified": 1739347364,
+        "narHash": "sha256-FzhAv8kVsD/UJbNfi26b4KiZZckR2fAy0T+725WqDqk=",
         "owner": "cpwrs",
         "repo": "americano.nvim",
-        "rev": "38fc835c51d2b3b2086cd422a38bd25fb4496a04",
+        "rev": "ca828a5ca9e697927252b717c2b8695b6b01ad24",
         "type": "github"
       },
       "original": {
@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1739037157,
-        "narHash": "sha256-6rdG6X6Lt/gh+NU7+7vAPe9FmroSU0p1RlwPJWy96hc=",
+        "lastModified": 1739312174,
+        "narHash": "sha256-QBsk813b8UjHZGPR6cVoPRRbEM6k4HnJBKW7vcmypcc=",
         "owner": "Saghen",
         "repo": "blink.cmp",
-        "rev": "d6169f0551bb1c8d18cc118e5c970a7b01a2726d",
+        "rev": "754a684f5aa31126dfd537ab4888abe8c441fd3e",
         "type": "github"
       },
       "original": {
@@ -36,10 +36,32 @@
         "type": "github"
       }
     },
+    "envy": {
+      "inputs": {
+        "americano": "americano",
+        "blink": "blink",
+        "flake-parts": "flake-parts_2",
+        "neovim": "neovim",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1739347681,
+        "narHash": "sha256-ZP4Ue1vlzJMkXTUN1FcHIcjx5EUhz/aig/Xg3JvprDE=",
+        "owner": "crpowers",
+        "repo": "envy",
+        "rev": "a4e22fbf995346adf65263188e4e79a415b18154",
+        "type": "github"
+      },
+      "original": {
+        "owner": "crpowers",
+        "repo": "envy",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
-          "neovim",
+          "envy",
           "blink",
           "nixpkgs"
         ],
@@ -146,7 +168,7 @@
     "flake-parts_3": {
       "inputs": {
         "nixpkgs-lib": [
-          "neovim",
+          "envy",
           "neovim",
           "nixpkgs"
         ]
@@ -168,7 +190,7 @@
     "flake-parts_4": {
       "inputs": {
         "nixpkgs-lib": [
-          "neovim",
+          "envy",
           "neovim",
           "hercules-ci-effects",
           "nixpkgs"
@@ -192,7 +214,7 @@
         "flake-compat": "flake-compat_2",
         "gitignore": "gitignore",
         "nixpkgs": [
-          "neovim",
+          "envy",
           "neovim",
           "nixpkgs"
         ]
@@ -214,7 +236,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "neovim",
+          "envy",
           "neovim",
           "git-hooks",
           "nixpkgs"
@@ -238,7 +260,7 @@
       "inputs": {
         "flake-parts": "flake-parts_4",
         "nixpkgs": [
-          "neovim",
+          "envy",
           "neovim",
           "nixpkgs"
         ]
@@ -259,44 +281,6 @@
     },
     "neovim": {
       "inputs": {
-        "americano": "americano",
-        "blink": "blink",
-        "flake-parts": "flake-parts_2",
-        "neovim": "neovim_2",
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1739083495,
-        "narHash": "sha256-8lgSAFafw/Ba2Cqgg6BoirrXmXRqCE0+NyzZh56ySE0=",
-        "owner": "crpowers",
-        "repo": "envy",
-        "rev": "d01652da560e0f120fef2d2c0758e1e8bc8ac36b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "crpowers",
-        "repo": "envy",
-        "type": "github"
-      }
-    },
-    "neovim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1738966259,
-        "narHash": "sha256-4TLVDIvtgPXkIDZbHKSBoICBTR8suhAOjSBsHZlXpsY=",
-        "owner": "neovim",
-        "repo": "neovim",
-        "rev": "a9cdf76e3a142c78b2b5da58c428e15e31cb0a15",
-        "type": "github"
-      },
-      "original": {
-        "owner": "neovim",
-        "repo": "neovim",
-        "type": "github"
-      }
-    },
-    "neovim_2": {
-      "inputs": {
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts_3",
         "git-hooks": "git-hooks",
@@ -306,16 +290,32 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1738973121,
-        "narHash": "sha256-8Y58Pu9ijovxUFcyz+UIInWBPn12vAxXPyuDQKTO3y4=",
+        "lastModified": 1739232942,
+        "narHash": "sha256-BB67RIHP2SYVocjoFaJ6OUmHItF42sNcLO/330DHWn8=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "80cd53ef3a60f1a4bf3c6a7cbc5a400816c8427a",
+        "rev": "705e07d87df327c6e74add1be99c65cfee21cacf",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
+        "type": "github"
+      }
+    },
+    "neovim-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739211707,
+        "narHash": "sha256-nxQ0sMFIqSTuD8C+AsS6DcMYQbmi4ZWmkGyrqJh/D1Y=",
+        "owner": "neovim",
+        "repo": "neovim",
+        "rev": "c7d13f2895fa657ff3d9d45741f9abec25072b56",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neovim",
+        "repo": "neovim",
         "type": "github"
       }
     },
@@ -381,11 +381,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1738797219,
-        "narHash": "sha256-KRwX9Z1XavpgeSDVM/THdFd6uH8rNm/6R+7kIbGa+2s=",
+        "lastModified": 1739019272,
+        "narHash": "sha256-7Fu7oazPoYCbDzb9k8D/DdbKrC3aU1zlnc39Y8jy/s8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1da52dd49a127ad74486b135898da2cef8c62665",
+        "rev": "fa35a3c8e17a3de613240fea68f876e5b4896aec",
         "type": "github"
       },
       "original": {
@@ -397,11 +397,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1738843498,
-        "narHash": "sha256-7x+Q4xgFj9UxZZO9aUDCR8h4vyYut4zPUvfj3i+jBHE=",
+        "lastModified": 1739206421,
+        "narHash": "sha256-PwQASeL2cGVmrtQYlrBur0U20Xy07uSWVnFup2PHnDs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f5a32fa27df91dfc4b762671a0e0a859a8a0058f",
+        "rev": "44534bc021b85c8d78e465021e21f33b856e2540",
         "type": "github"
       },
       "original": {
@@ -445,7 +445,7 @@
     },
     "root": {
       "inputs": {
-        "neovim": "neovim",
+        "envy": "envy",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_5"
       }
@@ -470,7 +470,7 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "neovim",
+          "envy",
           "neovim",
           "nixpkgs"
         ]

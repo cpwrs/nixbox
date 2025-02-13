@@ -48,6 +48,7 @@
           pkgs.gh
         ] ++ (with inputs; [
           envy.packages.${pkgs.system}.default
+        ]);
       };
     };
   };
