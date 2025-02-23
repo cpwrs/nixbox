@@ -42,10 +42,12 @@
         isNormalUser = true;
         extraGroups  = [ "wheel" ];
         packages = with pkgs; [
-					pkgs.htop
-          pkgs.pfetch
-          pkgs.ripgrep
-          pkgs.gh
+					htop
+          lazygit
+          pfetch
+          ripgrep
+          gh
+          fzf
         ] ++ (with inputs; [
           envy.packages.${pkgs.system}.default
         ]);
@@ -54,13 +56,13 @@
   };
 
 	# Global packages
-  environment.systemPackages = [ 
-    pkgs.tmux
-    pkgs.git
-    pkgs.unzip
-    pkgs.zip
-    pkgs.wget
-    pkgs.vim
+  environment.systemPackages = with pkgs; [ 
+    tmux
+    git
+    unzip
+    zip
+    wget
+    vim
   ];
  
   system.stateVersion = "24.05";
