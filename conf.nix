@@ -117,7 +117,6 @@
           dmenu
           htop
           hsetroot
-          picom
           pfetch
           scrot
           ripgrep
