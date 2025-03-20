@@ -124,6 +124,7 @@
           fzf
           feh
           lazygit
+          mutt
         ] ++ (with inputs; [
           envy.packages.${pkgs.system}.default
           wezterm.packages.${pkgs.system}.default
