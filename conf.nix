@@ -16,6 +16,9 @@
       experimental-features = nix-command flakes
     '';
   };
+
+  # Automatically build the immutable man page cache
+  documentation.man.generateCaches = true;
  
   # Set timezone.
   time.timeZone = "America/Chicago";
@@ -63,6 +66,8 @@
     zip
     wget
     vim
+    man-pages
+    man-pages-posix
   ];
  
   system.stateVersion = "24.05";
