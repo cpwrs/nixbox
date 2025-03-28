@@ -138,6 +138,8 @@
     vim
     xlockmore
     xclip
+    man-pages
+    man-pages-posix
   ];
 
   networking = {
