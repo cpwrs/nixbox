@@ -24,6 +24,12 @@
     };
   };
 
+  # Automatically build the man immutable cache
+  documentation = {
+    dev.enable = true;
+    man.generateCaches = true;
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot = {
     loader = {
