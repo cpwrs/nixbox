@@ -120,9 +120,9 @@
           feh
           lazygit
           mutt
+          wezterm
         ] ++ (with inputs; [
           envy.packages.${pkgs.system}.default
-          wezterm.packages.${pkgs.system}.default
         ]);
       };
     };
