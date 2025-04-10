@@ -114,21 +114,22 @@
         ];
         extraGroups  = [ "wheel" ];
         packages = with pkgs; [
-          chromium
-          dmenu
-          htop
-          hsetroot
-          pfetch
-          scrot
-          ripgrep
-          gh
-          fzf
-          feh
-          lazygit
-          mutt
-          wezterm
+          chromium    # Browser
+          dmenu       # Menu
+          htop        # Pretty process viewer
+          hsetroot    # Wallpaper app
+          pfetch      # Pretty system info
+          scrot       # Screenshots
+          ripgrep     # Grep dirs respectfully
+          gh          # GitHub CLI
+          fzf         # Fuzzy find lists
+          feh         # Wallpaper app
+          lazygit     # Git CLI
+          mutt        # Mail clinet
+          wezterm     # Terminal
+          typora      # Markdown renderer
         ] ++ (with inputs; [
-          envy.packages.${pkgs.system}.default
+          envy.packages.${pkgs.system}.default # Personal neovim config
         ]);
       };
     };
@@ -136,16 +137,15 @@
 
   # Global packages
   environment.systemPackages = with pkgs; [ 
-    tmux
-    git
-    unzip
-    zip
-    wget
-    vim
-    xlockmore
-    xclip
-    man-pages
-    man-pages-posix
+    tmux            # Multiplexer
+    git             # Version control
+    unzip           # Extract zips
+    zip             # Zip files
+    wget            # Download files
+    vim             # Text editor
+    xclip           # Clipboard CLI
+    man-pages       # Add Linux dev manual pages
+    man-pages-posix # Add POSIX manual pages (0p, 1p, 3p) 
   ];
 
   networking = {
