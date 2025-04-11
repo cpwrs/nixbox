@@ -128,6 +128,7 @@
           mutt        # Mail clinet
           wezterm     # Terminal
           typora      # Markdown renderer
+          gimp        # Image editor
         ] ++ (with inputs; [
           envy.packages.${pkgs.system}.default # Personal neovim config
         ]);
