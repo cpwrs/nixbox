@@ -115,7 +115,7 @@
         extraGroups  = [ "wheel" ];
         packages = with pkgs; [
           chromium    # Browser
-          dmenu       # Menu
+          rofi        # Menu
           htop        # Pretty process viewer
           hsetroot    # Wallpaper app
           pfetch      # Pretty system info
