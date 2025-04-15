@@ -1,12 +1,10 @@
 { inputs, pkgs, ... }:
 {
-  # Services, packages, and configurations for my OS. 
-
   imports = [ 
-    ./hardware.nix # Auto-gen hardware stuff
+    ./hardware.nix # Auto-generated hardware stuff
   ];
 
-  # Allow unfree software and enable flakes.
+  # Allow unfree software and enable flakes
   nixpkgs.config.allowUnfree = true;
   nix = {
     settings.allowed-users = [ "carson" ];
@@ -24,13 +22,13 @@
     };
   };
 
-  # Automatically build the man immutable cache
+  # Automatically build the manpages immutable cache
   documentation = {
     dev.enable = true;
     man.generateCaches = true;
   };
 
-  # Use the systemd-boot EFI boot loader.
+  # Use the systemd-boot EFI boot loader
   boot = {
     loader = {
       systemd-boot = {
@@ -41,7 +39,6 @@
     }; 
   };
 
-  # Set timezone.
   time.timeZone = "America/Chicago";
 
   programs = {
@@ -60,17 +57,19 @@
       videoDrivers = [ "nvidia" ];
 
       # Not using a full display manager, 
-      # I just use run startx from the shell after login if needed.
+      # I just use run startx from the shell after login if needed
       displayManager.startx.enable = true;
 
-      # Tiling window manager.
+      # Tiling window manager
       windowManager.spectrwm.enable = true;
-
+      
+      # US keyboard layout
       xkb = {
         layout = "us";
       };
     };
 
+    # Audio handling
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -104,7 +103,7 @@
     };
   };
 
-  # Add carson and packages.
+  # Add carson and his packages
   users = {
     users = {
       carson = {

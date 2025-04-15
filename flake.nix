@@ -4,17 +4,27 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     envy.url = "github:crpowers/envy";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { self, nixpkgs, ... } @ inputs:
+  outputs = { self, nixpkgs, nixos-wsl, ... } @ inputs:
     let system = "x86_64-linux"; 
     in {
       nixosConfigurations = {
-        box = nixpkgs.lib.nixosSystem {
+        desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs.inputs = inputs;
           modules = [
-            ./conf.nix
+            ./systems/desktop/conf.nix
+          ];
+        };
+
+        surface = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs.inputs = inputs;
+          modules = [
+            nixos-wsl.nixosModules.default
+            ./systems/surface/conf.nix
           ];
         };
       };	
