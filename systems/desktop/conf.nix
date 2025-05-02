@@ -81,11 +81,9 @@
   };
 
   # Add hack nerdfont
-  fonts = {
-    packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "Hack" ]; } )
-    ];
-  };
+  fonts.packages = [
+    pkgs.nerd-fonts.hack
+  ];
 
   # Video and Sound
   hardware = {
