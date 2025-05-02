@@ -1,8 +1,8 @@
 {
-  description = "NixOS 24.05 config for my desktop";
+  description = "NixOS configurations for my computers";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     envy.url = "github:crpowers/envy";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
