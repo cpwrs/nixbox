@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    envy.url = "github:crpowers/envy";
+    envy.url = "github:cpwrs/envy";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
