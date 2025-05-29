@@ -77,6 +77,10 @@
     };
 
     openssh.enable = true;
+
+    # Powersaving / thermals
+    thermald.enable = true;
+    tlp.enable = true;
   };
 
   # Add hack nerdfont
@@ -140,7 +144,13 @@
 
   networking = {
     networkmanager.enable = true;
-    hostName = "box";
+    hostName = "surface";
+
+    wireless.networks = {
+      Farcaster = {
+        psk = "WelcomeToWifi";
+      };
+    };
 
     firewall = {
       enable = true;
