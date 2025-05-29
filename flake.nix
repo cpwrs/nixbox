@@ -5,9 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     envy.url = "github:cpwrs/envy";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, ... } @ inputs:
+  outputs = { self, nixpkgs, nixos-wsl, nixos-hardware, ... } @ inputs:
     let system = "x86_64-linux"; 
     in {
       nixosConfigurations = {
@@ -23,7 +24,7 @@
           inherit system;
           specialArgs.inputs = inputs;
           modules = [
-            nixos-wsl.nixosModules.default
+            nixos-hardware.nixosModules.microsoft-surface-common
             ./systems/surface/conf.nix
           ];
         };
