@@ -130,6 +130,7 @@
 
   # Global packages
   environment.systemPackages = with pkgs; [ 
+    iw              # Wireless configs
     tmux            # Multiplexer
     git             # Version control
     unzip           # Extract zips
