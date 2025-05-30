@@ -106,7 +106,7 @@
         isNormalUser = true;
         extraGroups  = [ "wheel" ];
         packages = with pkgs; [
-          chromium    # Browser
+          brave       # Browser
           rofi        # Menu
           htop        # Pretty process viewer
           hsetroot    # Wallpaper app
