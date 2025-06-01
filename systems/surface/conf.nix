@@ -44,6 +44,16 @@
       };
     };
 
+    # Get function keys working
+    # Only for root functions - user ones are in sxhkd
+    actkbd = {
+      enable = true;
+      bindings = [
+        { keys = [ 224 ]; events = [ "key" ]; command = "${pkgs.light}/bin/light -U 10"; } # Brightness down
+        { keys = [ 225 ]; events = [ "key" ]; command = "${pkgs.light}/bin/light -A 10"; } # Brightness up
+      ];
+    };
+
     # Audio handling
     pipewire = {
       enable = true;
@@ -97,12 +107,18 @@
           wezterm     # Terminal
           typora      # Markdown renderer
           gimp        # Image editor
+          sxhkd       # X hotkey daemon
         ] ++ (with inputs; [
           envy.packages.${pkgs.system}.default # Personal neovim config
         ]);
       };
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    iw        # Wireless configuration
+    playerctl # Media player controller
+  ];
 
   networking = {
     networkmanager.enable = true;
