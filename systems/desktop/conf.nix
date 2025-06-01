@@ -4,28 +4,8 @@
     ./hardware.nix # Auto-generated hardware stuff
   ];
 
-  # Allow unfree software and enable flakes
-  nixpkgs.config.allowUnfree = true;
   nix = {
     settings.allowed-users = [ "carson" ];
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-    optimise = {
-      automatic = true;
-      dates = [ "4:00" ];
-    };
-  };
-
-  # Automatically build the manpages immutable cache
-  documentation = {
-    dev.enable = true;
-    man.generateCaches = true;
   };
 
   # Use the systemd-boot EFI boot loader
@@ -106,9 +86,6 @@
     users = {
       carson = {
         isNormalUser = true;
-        openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/jc8By9E//y7jyoVNy7tcjXFCivtuCl972ZhA1ZSBa me@carsonp.net"
-        ];
         extraGroups  = [ "wheel" ];
         packages = with pkgs; [
           chromium    # Browser
@@ -133,20 +110,6 @@
     };
   };
 
-  # Global packages
-  environment.systemPackages = with pkgs; [ 
-    tmux            # Multiplexer
-    git             # Version control
-    unzip           # Extract zips
-    zip             # Zip files
-    wget            # Download files
-    vim             # Text editor
-    xclip           # Clipboard CLI
-    xlockmore       # Screensaver (spectr needs this?)
-    man-pages       # Add Linux dev manual pages
-    man-pages-posix # Add POSIX manual pages (0p, 1p, 3p) 
-  ];
-
   networking = {
     networkmanager.enable = true;
     hostName = "box";
@@ -156,6 +119,4 @@
       allowedTCPPorts = [ 22 ];
     };
   };
-
-  system.stateVersion = "25.05";
 }

@@ -17,6 +17,7 @@
           specialArgs.inputs = inputs;
           modules = [
             ./systems/desktop/conf.nix
+            ./systems/common
           ];
         };
 
@@ -26,6 +27,7 @@
           modules = [
             nixos-hardware.nixosModules.microsoft-surface-common
             ./systems/surface/conf.nix
+            ./systems/common
           ];
         };
       };	
