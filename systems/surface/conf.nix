@@ -72,6 +72,20 @@
   # Realtime priorities for pipewire
   security.rtkit.enable = true;
 
+  # Start evremap as root for capslock = ctrl (hold) or esc (tab)
+  systemd.services.evremap = {
+    description = "Caps lock key remapping";
+    wantedBy = [ "multi-user.target" ];
+
+    serviceConfig = {
+      User = "root";
+      Group = "root";
+      ExecStart = "${pkgs.evremap}/bin/evremap remap /home/carson/.config/evremap/evremap.toml";
+      Restart = "always";
+      WorkingDirectory = "/";
+    };
+  };
+
   # Add hack nerdfont
   fonts.packages = [
     pkgs.nerd-fonts.hack
@@ -121,6 +135,7 @@
   environment.systemPackages = with pkgs; [
     iw        # Wireless configuration
     playerctl # Media player controller
+    evremap   # Keyboard input remapper
   ];
 
   networking = {

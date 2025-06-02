@@ -1,9 +1,9 @@
-device_name = "SteelSeries SteelSeries Apex 5"
-phys = "usb-0000:00:14.0-8/input0"
+device_name = "Microsoft Surface Keyboard"
+phys = "usb-0000:00:14.0-1.3/input0"
 
 # Configure CAPSLOCK as a Dual Role key.
 # Holding it produces LEFTCTRL, but tapping it will produce ESC.
 [[dual_role]]
-input = "KEY_LEFTCTRL"
+input = "KEY_CAPSLOCK"
 hold = ["KEY_LEFTCTRL"]
 tap = ["KEY_ESC"]
