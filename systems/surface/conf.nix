@@ -69,6 +69,9 @@
     tlp.enable = true;
   };
 
+  # Realtime priorities for pipewire
+  security.rtkit.enable = true;
+
   # Add hack nerdfont
   fonts.packages = [
     pkgs.nerd-fonts.hack
