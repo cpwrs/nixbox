@@ -1,1 +1,6 @@
-nixbox is a flake that declares a NixOS 24.11 personal and work environment for my x86_64 desktop and laptop.
+NixOS 25.05 configurations for my desktop and laptop.
+
+```bash
+sudo nixos-rebuild --flake .#<system-name> switch
+stow -t $HOME -d systems/<system-name>/dotfiles
+```
