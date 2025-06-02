@@ -1,0 +1,30 @@
+[user]
+	name = Carson Powers
+	email = me@carsonp.net
+[init]
+	defaultBranch = trunk
+[branch]
+  sort = -committerdate
+[column]
+  ui = auto
+[tag]
+  sort = version:refname
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+[push]
+  autoSetupRemote = true
+  followTags = true
+[pull]
+  rebase = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+[rerere]
+  enabled = true
+  autoupdate = true
+[rebase]
+  updateRefs = true

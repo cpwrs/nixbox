@@ -2,6 +2,7 @@
 {
   # System packages
   environment.systemPackages = with pkgs; [ 
+    stow            # Dotfile manager
     tmux            # Multiplexer
     git             # Version control
     unzip           # Extract zips

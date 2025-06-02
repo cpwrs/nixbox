@@ -1,0 +1,13 @@
+! -- X11 Resources --
+
+! 1.5x DPI scaling
+Xft.dpi: 144
+
+! Disable automatic hinting
+Xft.autohint: 0
+
+! Enable font hinting generally
+Xft.hinting: 1
+
+! Enable font smoothing
+Xft.antialias: 1
