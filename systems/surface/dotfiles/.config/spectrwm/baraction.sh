@@ -111,7 +111,7 @@ memory () {
 # Update the bar utilities every five seconds.
 while :; do
   # Display username and window manager workspace info on left.
-  left="+|L 󱄅 ${BOLD}${USER}@$(hostname)${REGULAR}  Space ${BOLD}+L${REGULAR}  Hidden ${BOLD}+M${REGULAR}  Stack ${BOLD}+S${REGULAR}  $(date +"%H:%M")"
+  left="+|L ${BOLD}${USER}@$(hostname)${REGULAR}  Space ${BOLD}+L${REGULAR}  Hidden ${BOLD}+M${REGULAR}  Stack ${BOLD}+S${REGULAR}  $(date +"%H:%M")"
 
   # Display date and time in the center.
   center="+|C$(date +"%a %b %d %H:%M")"
