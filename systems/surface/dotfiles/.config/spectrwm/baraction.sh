@@ -67,7 +67,7 @@ wifi () {
 
   if [[ "$link_info" =~ "Connected to" ]]; then
     # Connected, get ssid and dBm
-    ssid=$(awk '/SSID:/ {print $2}' <<< "$link_info")
+    ssid=$(sed -n  's/.*SSID: *//p' <<< "$link_info")
     dBm=$(awk '/signal:/ {print $2}' <<< "$link_info")
 
     # dBm to quality percentage
