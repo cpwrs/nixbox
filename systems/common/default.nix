@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./meta.nix
+    ./services.nix
     ./packages.nix
   ];
 }

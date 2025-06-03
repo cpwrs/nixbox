@@ -86,11 +86,6 @@
     };
   };
 
-  # Add hack nerdfont
-  fonts.packages = [
-    pkgs.nerd-fonts.hack
-  ];
-
   # Video and Sound
   hardware = {
     graphics = {

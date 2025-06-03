@@ -15,9 +15,11 @@
     man-pages-posix # Add POSIX manual pages (0p, 1p, 3p) 
   ];
 
-  # For man-pages: build immutable cache 
+  fonts.packages = [
+    pkgs.nerd-fonts.hack
+  ];
+
   documentation = {
     dev.enable = true;
-    man.generateCaches = true;
   };
 }
