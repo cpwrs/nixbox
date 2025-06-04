@@ -4,11 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     envy.url = "github:cpwrs/envy";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    private-fonts.url = "git+ssh://git@github.com/cpwrs/fonts";
     nixos-hardware.url = "github:NixOS/nixos-hardware/11f2d9ea49c3e964315215d6baa73a8d42672f06";
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, nixos-hardware, ... } @ inputs:
+  outputs = { self, nixpkgs, nixos-hardware, ... } @ inputs:
     let system = "x86_64-linux"; 
     in {
       nixosConfigurations = {
