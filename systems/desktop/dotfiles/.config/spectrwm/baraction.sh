@@ -2,9 +2,10 @@
 # This file echos a string that will be processed and displayed on the spectrwm bar.
 # Any spectrwm bar_format character sequences will be expanded.
 
-# Text markup sequences
-BOLD="+@fn=1;+@fg=1;"
-REGULAR="+@fn=0;+@fg=0;"
+readonly BOLD="+@fn=1;+@fg=1;"
+readonly REGULAR="+@fn=0;+@fg=0;"
+readonly WIFI_INTERFACE="wlp5s0"
+readonly BATTERY_DIR="/sys/class/power_supply"
 
 # Echo the name(s) of connected bluetooth 
 # device(s) via BlueZ (bluetoothctl).
@@ -34,14 +35,41 @@ volume () {
   echo -e "Vol ${BOLD}${vol}${REGULAR}"
 }
 
-# Echo an icon representing internet connectivity.
-internet () {
-  if nc -zw1 google.com 443; then
-    echo "󰈁"
+# Echo a wifi signal strength icon and SSID
+# For the RSSI -> quality percentage conversion:
+# https://learn.microsoft.com/en-us/windows/win32/api/wlanapi/ns-wlanapi-wlan_association_attributes?redirectedfrom=MSDN
+wifi () {
+  link_info=$(iw dev "$WIFI_INTERFACE" link)
+
+  if [[ "$link_info" =~ "Connected to" ]]; then
+    # Connected, get ssid and dBm
+    ssid=$(sed -n  's/.*SSID: *//p' <<< "$link_info")
+    dBm=$(awk '/signal:/ {print $2}' <<< "$link_info")
+
+    # dBm to quality percentage
+    if (( dBm <= -100 )); then
+      quality=0
+    elif (( dBm >= -50 )); then
+      quality=100
+    else
+      let "quality = 2 * ($dBm + 100)"
+    fi
+
+    # Match quality to icon
+    if (( quality <= 20 )); then icon="󰣾"
+    elif (( quality <= 40 )); then icon="󰣴"
+    elif (( quality <= 60 )); then icon="󰣶"
+    elif (( quality <= 80 )); then icon="󰣸"
+    else icon="󰣺"
+    fi
+    
+    echo "${icon} ${BOLD}${ssid}${REGULAR}"
   else
-    echo "󰈂"
+    # Not connected
+    echo "󰣼"
   fi
 }
+
 
 # Echo the thermal_zone0 temp
 temp () {
@@ -59,14 +87,14 @@ memory () {
 # Update the bar utilities every five seconds.
 while :; do
   # Display username and window manager workspace info on left.
-  left="+|L󱄅 ${BOLD}${USER}@$(hostname)${REGULAR}  Space ${BOLD}+L${REGULAR}  Hidden ${BOLD}+M${REGULAR}  Stack ${BOLD}+S${REGULAR}"
+  left="+|L ${BOLD}${USER}@$(hostname)${REGULAR}  Space ${BOLD}+L${REGULAR}  Hidden ${BOLD}+M${REGULAR}  Stack ${BOLD}+S${REGULAR}  $(date +"%H:%M")"
 
   # Display date and time in the center.
   center="+|C$(date +"%a %b %d %H:%M")"
 
   # Display utilities from this script on the right.
-  right="+|R$(memory)  $(temp)  $(volume)  $(bluetooth)  $(internet)"
+  right="+|R$(wifi)  $(bluetooth)  $(memory)  $(temp)  $(volume)"
 
-  echo "${left}${center}${right}"
+  echo "${left}${right}"
   sleep 5
 done

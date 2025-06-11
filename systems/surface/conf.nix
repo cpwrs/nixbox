@@ -133,7 +133,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    iw        # Wireless configuration
     playerctl # Media player controller
     evremap   # Keyboard input remapper
   ];

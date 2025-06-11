@@ -13,6 +13,7 @@
     xlockmore       # Screensaver (spectr needs this?)
     man-pages       # Add Linux dev manual pages
     man-pages-posix # Add POSIX manual pages (0p, 1p, 3p) 
+    iw              # Wireless configuration
   ];
 
   fonts.packages = [
