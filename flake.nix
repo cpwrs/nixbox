@@ -36,7 +36,7 @@
         let pkgs = nixpkgs.legacyPackages.x86_64-linux;
         in pkgs.mkShell {
           packages = [
-            pkgs.nil # nix ls
+            pkgs.nixd # nix ls
           ];
         };
     };
