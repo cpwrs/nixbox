@@ -30,24 +30,32 @@
       enable = true;
       nix-direnv.enable = true;
     };
+
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
   };
+  
+  # Fix for Electron apps defaulting to X11
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   services = {
-    xserver = {
-      enable = true;
-
-      # Not using a full display manager, 
-      # I just use run startx from the shell after login if needed
-      displayManager.startx.enable = true;
-
-      # Tiling window manager
-      windowManager.spectrwm.enable = true;
-      
-      # US keyboard layout
-      xkb = {
-        layout = "us";
-      };
-    };
+    # xserver = {
+    #   enable = true;
+    #
+    #   # Not using a full display manager, 
+    #   # I just use run startx from the shell after login if needed
+    #   displayManager.startx.enable = true;
+    #
+    #   # Tiling window manager
+    #   windowManager.spectrwm.enable = true;
+    #
+    #   # US keyboard layout
+    #   xkb = {
+    #     layout = "us";
+    #   };
+    # };
 
     # Get function keys working
     # Only for root functions - user ones are in sxhkd
@@ -111,6 +119,7 @@
         packages = with pkgs; [
           brave       # Browser
           rofi        # Menu
+          wofi
           htop        # Pretty process viewer
           hsetroot    # Wallpaper app
           pfetch      # Pretty system info
@@ -118,7 +127,7 @@
           ripgrep     # Grep dirs respectfully
           gh          # GitHub CLI
           fzf         # Fuzzy find lists
-          feh         # Wallpaper app
+          hyprpaper   # IPC Wallpaper util
           lazygit     # Git CLI
           mutt        # Mail clinet
           wezterm     # Terminal
