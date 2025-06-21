@@ -5,7 +5,7 @@
 if [ $# -eq 1 ]; then
   path=$1
 else
-  path=$(find ~/proj ~/uni ~/flakes -mindepth 1 -maxdepth 1 -type d | fzf  --prompt="sesh> ")
+  path=$(find ~/ -mindepth 1 -maxdepth 3 -type d | fzf  --prompt="sesh> ")
 fi
 
 # Check that it exists and is a directory

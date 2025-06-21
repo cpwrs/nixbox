@@ -81,7 +81,7 @@
     users = {
       carson = {
         isNormalUser = true;
-        extraGroups  = [ "wheel" ];
+        extraGroups  = [ "wheel" "networkmanager" ];
         packages = with pkgs; [
           brave       # Browser
           rofi        # Menu

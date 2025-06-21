@@ -8,7 +8,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/11f2d9ea49c3e964315215d6baa73a8d42672f06";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, ... } @ inputs:
+  outputs = { nixpkgs, nixos-hardware, ... } @ inputs:
     let system = "x86_64-linux"; 
     in {
       nixosConfigurations = {
