@@ -1,5 +1,4 @@
 # -- Bourne Again Shell Configuration --
-set -o vi
 
 # -- Environment --
 export HISTSIZE=2000
@@ -12,13 +11,11 @@ export FZF_DEFAULT_OPTS="
 "
 export EDITOR=nvim
 
-# My scripts
+# -- Scripts --
 export PATH="$HOME/.local/bin:$PATH"
 
 # -- Aliases --
 alias l="ls -la"
-alias d="tmux detach"
-
 # Git
 alias ga="git add"
 alias gs="git status"
@@ -29,9 +26,6 @@ alias gd="git diff"
 alias gr="git restore"
 alias grs="git restore --staged"
 alias gcm="git commit -m"
-
-# Manage bare dotfiles repository from anywhere in the tree
-alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # -- Prompt Configuration --
 
@@ -47,7 +41,7 @@ BLUE="\x01\e[38;2;174;193;255m\x02"
 _git_branch () {
   local branch="$(git symbolic-ref --short HEAD 2>/dev/null)"
   if [ "$branch" ]; then 
-    echo -e "$OFFWHITE on $LIME${branch}$OFFWHITE$RESET" 
+    echo -e " $LIME${branch}$OFFWHITE$RESET" 
   fi
 }
 
@@ -56,16 +50,15 @@ _short_pwd () {
   echo -e "$BRIGHT$BOLD${pwd}$RESET" # Add bright color and bold.
 }
 
-# Return * in red or green depending on exit code of last command.
-_success () {
-  local sym="$([ "$exit_code" -eq 0 ] && echo "$GREEN^$RESET" || echo "$RED^$RESET")"
-  echo -e "$sym"
+# Return dulled exit code of last command.
+_exit () {
+  echo -e "$OFFWHITE$exit_code$RESET"
 }
 
-#v Return indicator if in a direnv dev environment
+# Return indicator if in a direnv dev environment
 _ifnixshell () {
   if [ "$IN_NIX_SHELL" ]; then
-    echo -e "$OFFWHITE in ${BLUE}*nix$RESET"
+    echo -e " ${BLUE}*nix$RESET"
   fi
 }
 

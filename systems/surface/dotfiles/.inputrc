@@ -1,5 +1,8 @@
 # -- GNU readline config --
 
+# Vi mode
+set editing-mode vi
+
 # Indicate insert/command mode
 set show-mode-in-prompt on
 
