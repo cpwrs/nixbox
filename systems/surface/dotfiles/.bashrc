@@ -67,7 +67,7 @@ _ifnixshell () {
 PROMPT_COMMAND='
   exit_code=$?
   PS1=""
-  PS1+="$(_success) "
+  PS1+="$(_exit) "
   PS1+="$(_short_pwd)"
   PS1+="$(_git_branch)"
   PS1+="$(_ifnixshell)"
