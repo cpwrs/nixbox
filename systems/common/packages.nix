@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   # System packages
   environment.systemPackages = with pkgs; [ 
@@ -18,7 +18,6 @@
 
   fonts.packages = [
     pkgs.nerd-fonts.hack
-    inputs.private-fonts.packages.${pkgs.system}.default
   ];
 
   documentation = {

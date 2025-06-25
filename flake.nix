@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     envy.url = "github:cpwrs/envy";
-    private-fonts.url = "github:cpwrs/fonts";
     nixos-hardware.url = "github:NixOS/nixos-hardware/11f2d9ea49c3e964315215d6baa73a8d42672f06";
   };
 
