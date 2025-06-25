@@ -11,6 +11,11 @@
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     ];
 
+    experimental-features = [
+      "cgroups"
+      "flakes"
+    ];
+
     builders-usesubstituters = true;
     http-connections = 50;
     show-trace = true;
