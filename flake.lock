@@ -253,11 +253,11 @@
         "rev": "8ef4183a699211e7c63303b533dc0f745914af10",
         "revCount": 2,
         "type": "git",
-        "url": "ssh://git@github.com/cpwrs/fonts"
+        "url": "https://github.com/cpwrs/fonts"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@github.com/cpwrs/fonts"
+        "url": "https://github.com/cpwrs/fonts"
       }
     },
     "root": {
