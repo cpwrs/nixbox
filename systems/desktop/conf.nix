@@ -29,6 +29,11 @@
       enable = true;
       nix-direnv.enable = true;
     };
+
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
   };
 
   services = {
@@ -84,15 +89,16 @@
         extraGroups  = [ "wheel" "networkmanager" ];
         packages = with pkgs; [
           brave       # Browser
-          rofi        # Menu
           htop        # Pretty process viewer
-          hsetroot    # Wallpaper app
           pfetch      # Pretty system info
-          scrot       # Screenshots
           ripgrep     # Grep dirs respectfully
           gh          # GitHub CLI
           fzf         # Fuzzy find lists
-          feh         # Wallpaper app
+          hyprpaper
+          hyprshot
+          hyprcursor
+          quickshell
+          wl-clipboard
           lazygit     # Git CLI
           mutt        # Mail clinet
           wezterm     # Terminal
