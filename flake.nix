@@ -1,6 +1,24 @@
 {
   description = "NixOS configurations for my computers";
 
+  nixConfig = {
+    extra-substituters = [ 
+      "https://cache.garnix.io"
+      "https://cache.nixos.org"
+    ];
+
+    extra-trusted-public-keys = [
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+    ];
+
+    builders-usesubstituters = true;
+    http-connections = 50;
+    show-trace = true;
+    trusted-users = [ "root" "@build" "@wheel" "@admin" ]; 
+    use-cgroups = true;
+  };
+
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     envy.url = "github:cpwrs/envy";
