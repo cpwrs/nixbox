@@ -23,7 +23,7 @@
   linx = {
     user = "carson";
     files = {
-      testrc = { source = '' test test test ''; target = .config/testing/testrc; };
+      testrc = { source = '' test test test ''; target = ".config/testing/testrc"; };
     };
   };
 
