@@ -20,6 +20,13 @@
     '';
   };
 
+  linx = {
+    user = "carson";
+    files = {
+      testrc = { source = '' test test test ''; target = .config/testing/testrc; };
+    };
+  };
+
   time.timeZone = "America/Chicago";
 
   programs = {

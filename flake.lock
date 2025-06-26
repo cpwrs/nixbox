@@ -116,6 +116,24 @@
         "type": "github"
       }
     },
+    "linx": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1750973269,
+        "narHash": "sha256-JfRsNh9oLCWeue369L4XEMiLNnxyvnt6QWD2P+H12jk=",
+        "owner": "cpwrs",
+        "repo": "linx",
+        "rev": "eb0e30895e8b40fb7b62a214dfe69048ec3bff98",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cpwrs",
+        "repo": "linx",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1747900541,
@@ -193,6 +211,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1750776420,
+        "narHash": "sha256-/CG+w0o0oJ5itVklOoLbdn2dGB0wbZVOoDm4np6w09A=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "30a61f056ac492e3b7cdcb69c1e6abdcf00e39cf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1750741721,
         "narHash": "sha256-Z0djmTa1YmnGMfE9jEe05oO4zggjDmxOGKwt844bUhE=",
         "owner": "nixos",
@@ -210,8 +244,9 @@
     "root": {
       "inputs": {
         "envy": "envy",
+        "linx": "linx",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_4"
       }
     },
     "rust-analyzer-src": {

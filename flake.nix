@@ -27,10 +27,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     envy.url = "github:cpwrs/envy";
+    linx.url = "github:cpwrs/linx";
     nixos-hardware.url = "github:NixOS/nixos-hardware/11f2d9ea49c3e964315215d6baa73a8d42672f06";
   };
 
-  outputs = { nixpkgs, nixos-hardware, ... } @ inputs:
+  outputs = { nixpkgs, nixos-hardware, linx, ... } @ inputs:
     let system = "x86_64-linux"; 
     in {
       nixosConfigurations = {
@@ -48,6 +49,7 @@
           specialArgs.inputs = inputs;
           modules = [
             nixos-hardware.nixosModules.microsoft-surface-common
+            linx.nixosModules.default
             ./systems/surface/conf.nix
             ./systems/common
           ];
