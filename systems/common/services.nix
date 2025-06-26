@@ -15,6 +15,7 @@
       automatic = true;
       dates = [ "4:00" ];
     };
+    settings.trusted-users = [ "@wheel" ];
   };
 
   # I don't want to build the immutable cache every time
