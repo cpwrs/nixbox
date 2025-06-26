@@ -20,7 +20,7 @@
     '';
   };
 
-  linx = {
+  symlink = {
     "/home/carson/.config/testing/testrc" = '' test test test '';  
   };
 
