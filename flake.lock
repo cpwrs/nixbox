@@ -121,11 +121,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1750974177,
-        "narHash": "sha256-exAu/o2cQFpBPZVuty3cnzM6oS2BsCwWORZ2rg9/N+0=",
+        "lastModified": 1750977707,
+        "narHash": "sha256-SYd8vosV8WjS7MNfG7obGtb/CGDqYoyw5BwBKiuHuZM=",
         "owner": "cpwrs",
         "repo": "linx",
-        "rev": "c61f558150b5b0e767a491045b023639d5ec5ce4",
+        "rev": "da16dde4d30a1beefe3f0855deac48880b079b3d",
         "type": "github"
       },
       "original": {

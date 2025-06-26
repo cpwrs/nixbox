@@ -21,10 +21,7 @@
   };
 
   linx = {
-    user = "carson";
-    files = {
-      testrc = { source = '' test test test ''; target = ".config/testing/testrc"; };
-    };
+    "/home/carson/.config/testing/testrc" = '' test test test '';  
   };
 
   time.timeZone = "America/Chicago";
