@@ -1,6 +1,9 @@
-{ inputs, pkgs, ... }:
 {
-  imports = [ 
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [
     ./hardware.nix # Auto-generated hardware stuff
   ];
 
@@ -20,8 +23,16 @@
     '';
   };
 
-  symlink = {
-    "/home/carson/.config/testing/testrc" = '' test test test '';  
+  desktop = {
+    enableFor = ["carson"];
+    hyprland = {
+      monitors = [",preferred,auto,1.25"];
+      binds = [
+        "bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        "bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        "bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+    };
   };
 
   time.timeZone = "America/Chicago";
@@ -34,15 +45,7 @@
       enable = true;
       nix-direnv.enable = true;
     };
-
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
   };
-  
-  # Fix for Electron apps defaulting to X11
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   services = {
     # Get function keys working
@@ -50,8 +53,16 @@
     actkbd = {
       enable = true;
       bindings = [
-        { keys = [ 224 ]; events = [ "key" ]; command = "${pkgs.light}/bin/light -U 10"; } # Brightness down
-        { keys = [ 225 ]; events = [ "key" ]; command = "${pkgs.light}/bin/light -A 10"; } # Brightness up
+        {
+          keys = [224];
+          events = ["key"];
+          command = "${pkgs.light}/bin/light -U 10";
+        } # Brightness down
+        {
+          keys = [225];
+          events = ["key"];
+          command = "${pkgs.light}/bin/light -A 10";
+        } # Brightness up
       ];
     };
 
@@ -75,7 +86,7 @@
   # Start evremap as root for capslock = ctrl (hold) or esc (tab)
   systemd.services.evremap = {
     description = "Caps lock key remapping";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
 
     serviceConfig = {
       User = "root";
@@ -102,34 +113,30 @@
     users = {
       carson = {
         isNormalUser = true;
-        extraGroups  = [ "wheel" "networkmanager" ];
-        packages = with pkgs; [
-          brave         # Browser
-          htop          # Pretty process viewer
-          pfetch        # Pretty system info
-          ripgrep       # Grep dirs respectfully
-          gh            # GitHub CLI
-          fzf           # Fuzzy find lists
-          hyprpaper     # IPC Wallpaper util
-          hyprshot      # Screenshots
-          hyprcursor    # Cursor format
-          quickshell    # Desktop shell
-          wl-clipboard  # CLI copy/paste utils
-          lazygit       # Git CLI
-          mutt          # Mail client
-          wezterm       # Terminal
-          typora        # Markdown renderer
-          gimp          # Image editor
-        ] ++ (with inputs; [
-          envy.packages.${pkgs.system}.default # Personal neovim config
-        ]);
+        extraGroups = ["wheel" "networkmanager"];
+        packages = with pkgs;
+          [
+            brave # Browser
+            htop # Pretty process viewer
+            pfetch # Pretty system info
+            ripgrep # Grep dirs respectfully
+            gh # GitHub CLI
+            fzf # Fuzzy find lists
+            lazygit # Git CLI
+            mutt # Mail client
+            wezterm # Terminal
+            typora # Markdown renderer
+            gimp # Image editor
+          ]
+          ++ (with inputs; [
+            envy.packages.${pkgs.system}.default # Personal neovim config
+          ]);
       };
     };
   };
 
   environment.systemPackages = with pkgs; [
-    playerctl # Media player controller
-    evremap   # Keyboard input remapper
+    evremap # Keyboard input remapper
   ];
 
   networking = {
@@ -144,7 +151,7 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 ];
+      allowedTCPPorts = [22];
     };
   };
 

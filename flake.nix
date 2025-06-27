@@ -2,7 +2,7 @@
   description = "NixOS configurations for my computers";
 
   nixConfig = {
-    extra-substituters = [ 
+    extra-substituters = [
       "https://cache.garnix.io"
       "https://cache.nixos.org"
     ];
@@ -19,10 +19,9 @@
     builders-usesubstituters = true;
     http-connections = 50;
     show-trace = true;
-    trusted-users = [ "root" "@build" "@wheel" "@admin" ]; 
+    trusted-users = ["root" "@build" "@wheel" "@admin"];
     use-cgroups = true;
   };
-
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -30,37 +29,43 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/11f2d9ea49c3e964315215d6baa73a8d42672f06";
   };
 
-  outputs = { nixpkgs, nixos-hardware, ... } @ inputs:
-    let system = "x86_64-linux"; 
-    in {
-      nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs.inputs = inputs;
-          modules = [
-            ./systems/desktop/conf.nix
-            ./systems/common
-          ];
-        };
+  outputs = {
+    nixpkgs,
+    nixos-hardware,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+  in {
+    nixosConfigurations = {
+      desktop = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs.inputs = inputs;
+        modules = [
+          ./hosts/desktop/conf.nix
+          ./hosts/common
+        ];
+      };
 
-        surface = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs.inputs = inputs;
-          modules = [
-            nixos-hardware.nixosModules.microsoft-surface-common
-            ./modules/symlink.nix
-            ./systems/surface/conf.nix
-            ./systems/common
-          ];
-        };
-      };	
-
-      devShells.${system}.default =
-        let pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        in pkgs.mkShell {
-          packages = [
-            pkgs.nixd # nix ls
-          ];
-        };
+      surface = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs.inputs = inputs;
+        modules = [
+          nixos-hardware.nixosModules.microsoft-surface-common
+          ./modules/desktop
+          ./hosts/surface/conf.nix
+          ./hosts/common
+        ];
+      };
     };
+
+    devShells.${system}.default = let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    in
+      pkgs.mkShell {
+        packages = [
+          pkgs.nixd # nix ls
+          pkgs.alejandra
+        ];
+      };
+  };
 }
