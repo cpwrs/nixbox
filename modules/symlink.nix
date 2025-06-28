@@ -10,7 +10,7 @@ in {
   options.symlink = mkOption {
     type = types.attrsOf (types.either types.path types.lines);
     default = {};
-    description = "Source of file or text to be symlinked";
+    description = "File, directory, or text to symlink";
   };
 
   config = mkIf (cfg != {}) {

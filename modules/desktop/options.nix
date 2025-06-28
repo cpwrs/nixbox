@@ -16,6 +16,10 @@ with lib; {
         type = types.listOf types.str;
         default = [",preferred,auto,1"];
         description = "List of monitor configurations. See https://wiki.hypr.land/Configuring/Monitors/.";
+        example = [
+          "DP-1, 1920x1080, 0x0, 1"
+          "DP-2, 1920x1080, 1920x0, 1"
+        ];
       };
       border_size = mkOption {
         type = types.int;
@@ -36,11 +40,15 @@ with lib; {
         type = types.float;
         default = 0.0;
         description = "-1.0 to 1.0, 0 means no modification. See https://wiki.hyprland.org/Configuring/Variables/#input.";
+        example = 0.5;
       };
       binds = mkOption {
         type = types.listOf (types.str);
         default = [];
         description = ''List of hyprland binds. Must include "bind[flags] = ". See https://wiki.hypr.land/Configuring/Binds/.'';
+        example = [
+          "bindl = , XF86AudioPlay, exec, playerctl play-pause"
+        ];
       };
     };
 

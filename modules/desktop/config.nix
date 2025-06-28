@@ -13,12 +13,12 @@ in {
     environment = {
       # Packages needed for the desktop
       systemPackages = with pkgs; [
-        playerctl
         wl-clipboard
         quickshell
         hyprpaper
         hyprcursor
         hyprshot
+        bibata-cursors
       ];
       sessionVariables = {
         # Fix for electrion apps defaulting to X11

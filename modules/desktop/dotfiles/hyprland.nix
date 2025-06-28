@@ -16,11 +16,11 @@ in ''
   exec-once = hyprctl setcursor Bibata-Modern-Classic ${toString cfg.cursor_size}
 
   # Cursor
-  env = XCURSOR_THEME,Bibata-Modern-Classic
+  env = XCURSOR_THEME,Bibata-Original-Classic
   env = XCURSOR_SIZE,${toString cfg.cursor_size}
+  # Other env variables
   ${concatMapStringsSep "\n" (env: "env = ${env}") cfg.variables}
 
-  # https://wiki.hyprland.org/Configuring/Variables/
   general {
       gaps_in = ${toString (cfg.hyprland.gaps / 2)}
       gaps_out = ${toString cfg.hyprland.gaps}
@@ -139,7 +139,6 @@ in ''
 
   # Bindings
   ${concatMapStringsSep "\n" (bind: "${bind}") cfg.hyprland.binds}
-  bindl = , XF86AudioPlay, exec, playerctl play-pause
 
   # Ignore maximize requests from apps
   windowrule = suppressevent maximize, class:.*

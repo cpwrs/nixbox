@@ -27,10 +27,13 @@
     enableFor = ["carson"];
     hyprland = {
       monitors = [",preferred,auto,1.25"];
+      rounding = 12;
+      gaps = 12;
       binds = [
         "bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
         "bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         "bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        "bindl = , XF86AudioPlay, exec, playerctl play-pause"
       ];
     };
   };
