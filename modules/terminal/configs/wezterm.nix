@@ -42,7 +42,7 @@ with builtins; ''
     },
   }
 
-  config.font_dir = wezterm.font_with_fallback {
+  config.font = wezterm.font_with_fallback {
     'Berkeley Mono SemiCondensed',
     'Hack Nerd Font',
   }
