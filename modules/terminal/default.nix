@@ -103,7 +103,7 @@ in {
         "/home/${user}/.config/git/config" = ./configs/.gitconfig;
         "/home/${user}/.config/tmux/tmux.conf" = ./configs/tmux.conf;
         "/home/${user}/.local/bin" = ./configs/bin;
-        "/home/${user}/.config/wezterm/wezterm.conf" = weztermConf;
+        "/home/${user}/.config/wezterm/wezterm.lua" = weztermConf;
       })
       cfg.enableFor);
   };
