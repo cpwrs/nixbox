@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Choose a project dir with fzf and create a tmux session for it with neovim and bash windows open
+
+# Check that a path parameter is provided
+if [ $# -eq 1 ]; then
+  path=$1
+else
+  path=$(find ~/ -mindepth 1 -maxdepth 3 -type d | fzf  --prompt="sesh> ")
+fi
+
+# Check that it exists and is a directory
+if [ ! -d "$path" ]; then
+  echo "Error: Directory '$path' does not exist"
+  exit 1
+fi
+
+# Sanitize the session name
+dir=$(basename "$path" | tr '.' '-')
+
+if ! tmux has-session -t "$dir" 2>/dev/null; then
+  tmux new-session -d -s "$dir" -c "$path"
+  tmux send-keys -t "$dir:0" 'nvim' C-m # Open nvim window 0
+  tmux new-window -t "$dir:1" -c "$path" # Term in window 1
+
+  # Select window 0
+  tmux select-window -t "$dir:0"
+fi
+
+if [ -n "$TMUX" ]; then
+  tmux switch-client -t "$dir"
+else 
+  tmux attach -t "$dir"
+fi
+
+exit 0

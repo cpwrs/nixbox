@@ -18,21 +18,5 @@
     settings.trusted-users = [ "@wheel" ];
   };
 
-  # I don't want to build the immutable cache every time
-  # Just once weekly at 4AM
-  systemd.services."build-man-cache" = {
-    description = "Build the immutable man pages cache"; 
-    startAt = "Sun 04:00";
-    serviceConfig = {
-      Type = "oneshot";
-      User = "root";
-    };
-    path = [ pkgs.coreutils ];
-    script = ''
-      mkdir -p /var/cache/man/nixos
-      ${pkgs.man-db}/bin/mandb
-    '';
-  };
-
   system.stateVersion = "25.05";
 }

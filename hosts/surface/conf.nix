@@ -25,10 +25,10 @@
 
   desktop = {
     enableFor = ["carson"];
-    hyprland = {
+    compositor = {
       monitors = [",preferred,auto,1.25"];
-      rounding = 12;
-      gaps = 12;
+      border_radius = 12;
+      gap_size = 12;
       binds = [
         "bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
         "bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -36,6 +36,13 @@
         "bindl = , XF86AudioPlay, exec, playerctl play-pause"
       ];
     };
+  };
+
+  terminal = {
+    enableFor = ["carson"];
+    font_size = 16;
+    padding = [4 4 4 4];
+    max_fps = 60;
   };
 
   time.timeZone = "America/Chicago";
@@ -117,23 +124,12 @@
       carson = {
         isNormalUser = true;
         extraGroups = ["wheel" "networkmanager"];
-        packages = with pkgs;
-          [
-            brave # Browser
-            htop # Pretty process viewer
-            pfetch # Pretty system info
-            ripgrep # Grep dirs respectfully
-            gh # GitHub CLI
-            fzf # Fuzzy find lists
-            lazygit # Git CLI
-            mutt # Mail client
-            wezterm # Terminal
-            typora # Markdown renderer
-            gimp # Image editor
-          ]
-          ++ (with inputs; [
-            envy.packages.${pkgs.system}.default # Personal neovim config
-          ]);
+        packages = with pkgs; [
+          brave # Browser
+          mutt # Mail client
+          typora # Markdown renderer
+          gimp # Image editor
+        ];
       };
     };
   };

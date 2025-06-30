@@ -52,6 +52,7 @@
         modules = [
           nixos-hardware.nixosModules.microsoft-surface-common
           ./modules/desktop
+          ./modules/terminal
           ./hosts/surface/conf.nix
           ./hosts/common
         ];

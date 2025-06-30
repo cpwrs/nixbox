@@ -2,10 +2,9 @@
   cfg,
   lib,
 }:
-with lib; let
-in ''
+with lib; ''
   # Monitors
-  ${concatMapStringsSep "\n" (monitor: "monitor = ${monitor}") cfg.hyprland.monitors}
+  ${concatMapStringsSep "\n" (monitor: "monitor = ${monitor}") cfg.compositor.monitors}
 
   # Aliases for programs
   $terminal = wezterm
@@ -22,9 +21,9 @@ in ''
   ${concatMapStringsSep "\n" (env: "env = ${env}") cfg.variables}
 
   general {
-      gaps_in = ${toString (cfg.hyprland.gaps / 2)}
-      gaps_out = ${toString cfg.hyprland.gaps}
-      border_size = ${toString cfg.hyprland.border_size}
+      gaps_in = ${toString (cfg.compositor.gap_size / 2)}
+      gaps_out = ${toString cfg.compositor.gap_size}
+      border_size = ${toString cfg.compositor.border_size}
       col.active_border = rgba(514d4add)
       col.inactive_border = rgba(2a2624dd)
       resize_on_border = true
@@ -33,7 +32,7 @@ in ''
       no_focus_fallback = true
   }
   decoration {
-      rounding = ${toString cfg.hyprland.rounding}
+      rounding = ${toString cfg.compositor.border_radius}
       rounding_power = 2
       active_opacity = 1.0
       inactive_opacity = 1.0
@@ -69,7 +68,7 @@ in ''
   input {
       kb_layout = us
       follow_mouse = 1
-      sensitivity = ${toString cfg.hyprland.mouse_sensitivity}
+      sensitivity = ${toString cfg.mouse_sensitivity}
   }
 
   # https://wiki.hyprland.org/Configuring/Variables/#gestures
@@ -138,7 +137,7 @@ in ''
   bindm = $mainMod, mouse:273, resizewindow
 
   # Bindings
-  ${concatMapStringsSep "\n" (bind: "${bind}") cfg.hyprland.binds}
+  ${concatMapStringsSep "\n" (bind: "${bind}") cfg.compositor.binds}
 
   # Ignore maximize requests from apps
   windowrule = suppressevent maximize, class:.*
