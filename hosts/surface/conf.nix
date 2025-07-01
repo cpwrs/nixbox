@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware.nix # Auto-generated hardware stuff
   ];
@@ -129,6 +125,7 @@
           mutt # Mail client
           typora # Markdown renderer
           gimp # Image editor
+          gemini-cli # AI agent
         ];
       };
     };
