@@ -12,7 +12,6 @@
     ];
 
     experimental-features = [
-      "cgroups"
       "flakes"
     ];
 
