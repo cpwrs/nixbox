@@ -35,7 +35,7 @@
     system = "x86_64-linux";
   in {
     nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
+      toaster = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs.inputs = inputs;
         modules = [
