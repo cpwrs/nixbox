@@ -39,7 +39,9 @@
         inherit system;
         specialArgs.inputs = inputs;
         modules = [
-          ./hosts/desktop/conf.nix
+          ./modules/desktop
+          ./modules/terminal
+          ./hosts/toaster/conf.nix
           ./hosts/common
         ];
       };

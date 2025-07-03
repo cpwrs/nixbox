@@ -38,7 +38,6 @@
     enableFor = ["carson"];
     font_size = 16;
     padding = [4 4 4 4];
-    max_fps = 60;
   };
 
   time.timeZone = "America/Chicago";
