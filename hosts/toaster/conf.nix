@@ -81,7 +81,7 @@
 
   networking = {
     networkmanager.enable = true;
-    hostName = "box";
+    hostName = "toaster";
 
     firewall = {
       enable = true;
