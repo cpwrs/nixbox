@@ -57,7 +57,6 @@ with builtins; ''
     bottom = ${toString (elemAt cfg.padding 3)},
   }
 
-  config.max_fps = ${toString cfg.max_fps}
   config.front_end = "OpenGL"
 
   config.default_prog = { "tmux", "new-session", "-A", "-s", "scripting" }

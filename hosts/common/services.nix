@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{...}: {
   # Weekly garbage collection, optimise store at 4AM
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -13,9 +12,9 @@
     };
     optimise = {
       automatic = true;
-      dates = [ "4:00" ];
+      dates = ["4:00"];
     };
-    settings.trusted-users = [ "@wheel" ];
+    settings.trusted-users = ["@wheel"];
   };
 
   system.stateVersion = "25.05";

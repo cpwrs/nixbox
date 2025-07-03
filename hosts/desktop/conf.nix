@@ -1,12 +1,7 @@
-{ inputs, pkgs, ... }:
-{
-  imports = [ 
+{pkgs, ...}: {
+  imports = [
     ./hardware.nix # Auto-generated hardware stuff
   ];
-
-  nix = {
-    settings.allowed-users = [ "carson" ];
-  };
 
   # Use the systemd-boot EFI boot loader
   boot = {
@@ -16,7 +11,20 @@
         configurationLimit = 5;
       };
       efi.canTouchEfiVariables = true;
-    }; 
+    };
+  };
+
+  terminal = {
+    enableFor = ["carson"];
+    font_size = 12;
+    padding = [4 4 4 4];
+  };
+
+  desktop = {
+    enableFor = ["carson"];
+    compositor = {
+      monitors = [",preferred,auto,1"];
+    };
   };
 
   time.timeZone = "America/Chicago";
@@ -24,36 +32,9 @@
   programs = {
     dconf.enable = true;
     gnupg.agent.enable = true;
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
   };
 
   services = {
-    xserver = {
-      enable = true;
-      videoDrivers = [ "nvidia" ];
-
-      # Not using a full display manager, 
-      # I just use run startx from the shell after login if needed
-      displayManager.startx.enable = true;
-
-      # Tiling window manager
-      windowManager.spectrwm.enable = true;
-      
-      # US keyboard layout
-      xkb = {
-        layout = "us";
-      };
-    };
-
     # Audio handling
     pipewire = {
       enable = true;
@@ -86,27 +67,14 @@
     users = {
       carson = {
         isNormalUser = true;
-        extraGroups  = [ "wheel" "networkmanager" ];
+        extraGroups = ["wheel" "networkmanager"];
         packages = with pkgs; [
-          brave       # Browser
-          htop        # Pretty process viewer
-          pfetch      # Pretty system info
-          ripgrep     # Grep dirs respectfully
-          gh          # GitHub CLI
-          fzf         # Fuzzy find lists
-          hyprpaper
-          hyprshot
-          hyprcursor
-          quickshell
-          wl-clipboard
-          lazygit     # Git CLI
-          mutt        # Mail clinet
-          wezterm     # Terminal
-          typora      # Markdown renderer
-          gimp        # Image editor
-        ] ++ (with inputs; [
-          envy.packages.${pkgs.system}.default # Personal neovim config
-        ]);
+          brave # Browser
+          mutt # Mail clinet
+          typora # Markdown renderer
+          gimp # Image editor
+          gemini-cli # AI agent
+        ];
       };
     };
   };
@@ -117,7 +85,7 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 ];
+      allowedTCPPorts = [22];
     };
   };
 }

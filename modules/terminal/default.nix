@@ -32,12 +32,6 @@ in {
       default = 1.0;
     };
 
-    max_fps = mkOption {
-      type = types.int;
-      description = "Maximum number of frames per second";
-      default = 60;
-    };
-
     padding = mkOption {
       type = types.listOf types.int;
       description = "Left, right, top, bottom window padding";
