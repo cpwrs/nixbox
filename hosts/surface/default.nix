@@ -43,7 +43,8 @@
     enableFor = ["carson"];
     emulator = {
       font_size = 18;
-      padding = [4 4 4 4];
+      line_height = 0.9;
+      padding = [14 14 14 14];
     };
   };
 
