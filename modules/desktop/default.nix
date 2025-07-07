@@ -54,6 +54,12 @@ in {
           "bindl = , XF86AudioPlay, exec, playerctl play-pause"
         ];
       };
+
+      extraConfig = mkOption {
+        type = types.str;
+        default = "";
+        description = "Any extra configuration you want inside hyprland.conf";
+      };
     };
 
     wallpaper = mkOption {
@@ -100,7 +106,10 @@ in {
     };
 
     hardware = {
-      graphics.enable = true;
+      graphics = {
+        enable32Bit = true;
+        enable = true;
+      };
     };
 
     # Hyprland compositor

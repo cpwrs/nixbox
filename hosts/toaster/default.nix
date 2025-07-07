@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [./hardware.nix];
   networking.hostName = "toaster";
 
@@ -32,9 +28,18 @@
     enableFor = ["carson"];
     compositor = {
       monitors = [",preferred,auto,1"];
+      extraConfig = ''
+        cursor {
+          no_hardware_cursors = 0
+          use_cpu_buffer = 1
+        }
+      '';
     };
+    variables = ["LIBVA_DRIVER_NAME,nvidia" "XDG_SESSION_TYPE,wayland" "GBM_BACKEND,nvidia-drm" "__GLX_VENDOR_LIBRARY_NAME,nvidia"];
   };
 
+  # Nvidia on Wayland...
+  services.xserver.videoDrivers = ["nvidia"];
   hardware = {
     nvidia = {
       open = true;
