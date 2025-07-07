@@ -19,23 +19,21 @@
     extraModulePackages = [];
 
     loader = {
-      systemd-boot = {
+      grub = {
         enable = true;
-        configurationLimit = 5;
+        device = "/dev/nvme0n1";
+        useOSProber = true;
       };
-      efi.canTouchEfiVariables = true;
     };
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/c6c8171e-4536-4104-ad5e-4b240047c86d";
-    fsType = "ext4";
-  };
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2EEE-5F56";
-    fsType = "vfat";
-  };
-  swapDevices = [];
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/33e8b576-10b2-4a1c-8763-da93f790d09d";
+      fsType = "ext4";
+    };
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/a951d816-878d-4e91-96c7-475f40eb6fec"; }
+    ];
 
   networking.useDHCP = lib.mkDefault true;
   networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
