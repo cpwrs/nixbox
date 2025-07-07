@@ -1,12 +1,12 @@
-{...}: {
-  # Weekly garbage collection, optimise store at 4AM
+{
+  pkgs,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
   nix = {
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
     gc = {
       automatic = true;
+      persistent = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
@@ -14,8 +14,9 @@
       automatic = true;
       dates = ["4:00"];
     };
-    settings.trusted-users = ["@wheel"];
+    settings = (import (../flake.nix)).nixConfig;
+    channel.enable = false;
   };
 
-  system.stateVersion = "25.05";
+  environment.systemPackages = with pkgs; [nh];
 }

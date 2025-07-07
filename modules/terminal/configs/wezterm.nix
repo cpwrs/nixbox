@@ -47,14 +47,14 @@ with builtins; ''
     'Hack Nerd Font',
   }
 
-  config.font_size = ${toString cfg.font_size}
-  config.line_height = ${toString cfg.line_height}
+  config.font_size = ${toString cfg.emulator.font_size}
+  config.line_height = ${toString cfg.emulator.line_height}
   config.enable_tab_bar = false
   config.window_padding = {
-    left = ${toString (elemAt cfg.padding 0)},
-    right = ${toString (elemAt cfg.padding 1)},
-    top = ${toString (elemAt cfg.padding 2)},
-    bottom = ${toString (elemAt cfg.padding 3)},
+    left = ${toString (elemAt cfg.emulator.padding 0)},
+    right = ${toString (elemAt cfg.emulator.padding 1)},
+    top = ${toString (elemAt cfg.emulator.padding 2)},
+    bottom = ${toString (elemAt cfg.emulator.padding 3)},
   }
 
   config.front_end = "OpenGL"

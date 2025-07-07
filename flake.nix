@@ -15,9 +15,11 @@
       "flakes"
     ];
 
-    builders-usesubstituters = true;
+    builders-use-substitutes = true;
     http-connections = 50;
+    lazy-trees = true;
     show-trace = true;
+    warn-dirty = false;
     trusted-users = ["root" "@build" "@wheel" "@admin"];
   };
 
@@ -27,46 +29,26 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs = {
-    nixpkgs,
-    nixos-hardware,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
+    inherit (builtins) readDir;
+    inherit (nixpkgs.lib) mapAttrs mapAttrsToList const;
     system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    allModules = mapAttrsToList (name: _: ./modules/${name}) (readDir ./modules);
   in {
-    nixosConfigurations = {
-      toaster = nixpkgs.lib.nixosSystem {
-        inherit system;
+    nixosConfigurations = mapAttrs (name:
+      const (nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
-        modules = [
-          ./modules/desktop
-          ./modules/terminal
-          ./hosts/toaster/conf.nix
-          ./hosts/common
-        ];
-      };
+        modules =
+          allModules
+          ++ [./hosts/${name} ./common];
+      })) (readDir ./hosts);
 
-      surface = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs.inputs = inputs;
-        modules = [
-          nixos-hardware.nixosModules.microsoft-surface-common
-          ./modules/desktop
-          ./modules/terminal
-          ./hosts/surface/conf.nix
-          ./hosts/common
-        ];
-      };
+    devShells.${system}.default = pkgs.mkShell {
+      packages = [
+        pkgs.nixd # nix ls
+        pkgs.alejandra
+      ];
     };
-
-    devShells.${system}.default = let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    in
-      pkgs.mkShell {
-        packages = [
-          pkgs.nixd # nix ls
-          pkgs.alejandra
-        ];
-      };
   };
 }

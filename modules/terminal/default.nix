@@ -1,6 +1,3 @@
-# This module is for enabling and configuring my entire terminal tool suite.
-# Provides options to customize the default experience in the wezterm terminal emulator.
-
 {
   lib,
   config,
@@ -20,22 +17,24 @@ in {
       description = "Name(s) of user(s) to enable the terminal tool suite for.";
     };
 
-    font_size = mkOption {
-      type = types.int;
-      description = "Font size";
-      default = 12;
-    };
+    emulator = {
+      font_size = mkOption {
+        type = types.int;
+        description = "Font size";
+        default = 12;
+      };
 
-    line_height = mkOption {
-      type = types.float;
-      description = "Font line height ( 0 - 1.0 )";
-      default = 1.0;
-    };
+      line_height = mkOption {
+        type = types.float;
+        description = "Font line height ( 0 - 1.0 )";
+        default = 1.0;
+      };
 
-    padding = mkOption {
-      type = types.listOf types.int;
-      description = "Left, right, top, bottom window padding";
-      default = [0 0 0 0];
+      padding = mkOption {
+        type = types.listOf types.int;
+        description = "Left, right, top, bottom window padding";
+        default = [0 0 0 0];
+      };
     };
   };
 

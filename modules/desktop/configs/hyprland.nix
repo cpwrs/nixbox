@@ -15,7 +15,7 @@ with lib; ''
   exec-once = hyprctl setcursor Bibata-Modern-Classic ${toString cfg.cursor_size}
 
   # Cursor
-  env = XCURSOR_THEME,Bibata-Original-Classic
+  env = XCURSOR_THEME,Bibata-Modern-Classic
   env = XCURSOR_SIZE,${toString cfg.cursor_size}
   # Other env variables
   ${concatMapStringsSep "\n" (env: "env = ${env}") cfg.variables}

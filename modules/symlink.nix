@@ -23,7 +23,7 @@ in {
             else pkgs.writeText (baseNameOf target) cfg.${target};
         in ''
           mkdir -p $(dirname "${target}")
-          rm -f ${target}
+          rm -rf ${target}
           # Create symlink!
           ln -sf ${storePath} ${target}
         ''

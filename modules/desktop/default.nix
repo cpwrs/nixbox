@@ -1,6 +1,3 @@
-# This module is for enabling and configuring my entire wayland desktop suite.
-# Includes the Hyprland compositor, Bibata cursor set, hyprpaper wallpaper engine,
-# hyprshot screenshot tool, wl-clipboard, Xwayland compatibility, and QuickShell toolkit.
 {
   lib,
   config,
@@ -100,6 +97,10 @@ in {
         # Fix for electrion apps defaulting to X11
         NIXOS_OZONE_WL = "1";
       };
+    };
+
+    hardware = {
+      graphics.enable = true;
     };
 
     # Hyprland compositor
