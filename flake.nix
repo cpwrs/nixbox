@@ -13,6 +13,7 @@
 
     experimental-features = [
       "flakes"
+      "nix-command"
     ];
 
     http-connections = 50;
