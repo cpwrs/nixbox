@@ -14,7 +14,7 @@
       automatic = true;
       dates = ["4:00"];
     };
-    settings = (import (../flake.nix)).nixConfig;
+    settings = (import ../flake.nix).nixConfig;
     channel.enable = false;
   };
 

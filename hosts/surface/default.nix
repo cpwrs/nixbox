@@ -42,7 +42,7 @@
   terminal = {
     enableFor = ["carson"];
     emulator = {
-      font_size = 18;
+      font_size = 20;
       padding = [4 4 4 4];
     };
   };
