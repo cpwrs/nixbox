@@ -28,6 +28,7 @@ in {
     systemd.services.evremap = {
       description = "Evremap service";
       wantedBy = ["multi-user.target"];
+      restartTriggers = [ cfg.config ];
 
       serviceConfig = {
         User = "root";

@@ -42,7 +42,7 @@
   terminal = {
     enableFor = ["carson"];
     emulator = {
-      font_size = 20;
+      font_size = 18;
       padding = [4 4 4 4];
     };
   };
@@ -75,4 +75,6 @@
     enable = true;
     config = ./evremap.toml;
   };
+
+  environment.systemPackages = with pkgs; [libcamera];
 }

@@ -24,9 +24,14 @@ in {
             else pkgs.writeText (baseNameOf target) cfg.${target};
         in ''
           mkdir -p $(dirname "${target}")
-          rm -rf ${target}
-          # Create symlink!
-          ln -sf ${storePath} ${target}
+          
+          if [ -L ${target} ] && [ "$(readlink "${target}")" = "${storePath}" ]; then
+            echo "Symlink ${target} already exists and points to correct store path, skipping"
+          else
+            rm -rf ${target}
+            ln -sf ${storePath} ${target}
+            echo "Created/updated symlink: ${target} -> ${storePath}"
+          fi
         ''
       ) (builtins.attrNames cfg);
     };
