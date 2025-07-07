@@ -20,7 +20,8 @@
     enableFor = ["carson"];
     emulator = {
       font_size = 12;
-      padding = [4 4 4 4];
+      line_height = 0.9;
+      padding = [7 7 7 7];
     };
   };
 
