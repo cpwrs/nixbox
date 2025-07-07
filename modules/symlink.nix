@@ -15,6 +15,7 @@ in {
 
   config = mkIf (cfg != {}) {
     system.activationScripts.symlink = {
+      deps = ["users"];
       text = lib.concatMapStringsSep "\n" (
         target: let
           storePath =
