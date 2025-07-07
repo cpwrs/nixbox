@@ -15,9 +15,7 @@
       "flakes"
     ];
 
-    builders-use-substitutes = true;
     http-connections = 50;
-    lazy-trees = true;
     show-trace = true;
     warn-dirty = false;
     trusted-users = ["root" "@build" "@wheel" "@admin"];
