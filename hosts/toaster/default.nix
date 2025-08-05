@@ -12,7 +12,6 @@
         typora # Markdown renderer
         gimp # Image editor
         gemini-cli # AI agent
-        notion-app
         d-spy
       ];
     };
