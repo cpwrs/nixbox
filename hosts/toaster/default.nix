@@ -8,10 +8,12 @@
       extraGroups = ["wheel"];
       packages = with pkgs; [
         brave # Browser
-        mutt # Mail clinet
+        mutt # Mail client
         typora # Markdown renderer
         gimp # Image editor
         gemini-cli # AI agent
+        notion-app
+        d-spy
       ];
     };
   };
