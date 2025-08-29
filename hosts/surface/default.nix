@@ -76,6 +76,4 @@
     enable = true;
     config = ./evremap.toml;
   };
-
-  environment.systemPackages = with pkgs; [libcamera];
 }
