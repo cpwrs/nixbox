@@ -1,65 +1,65 @@
 {
   cfg,
-  lib,
+    lib,
 }:
 with lib;
 with builtins; ''
-  local wezterm = require 'wezterm'
+local wezterm = require 'wezterm'
 
-  local config = wezterm.config_builder()
+local config = wezterm.config_builder()
 
   config.colors = {
     foreground = '#f7f7f7',
-    background = '#1c1714',
+    background = '#0e0c0a',
 
-    cursor_bg = '#f7f7f7',
-    cursor_fg = '#1c1714',
-    cursor_border = "#f7f7f7",
+    cursor_bg = '#fdffd1',
+    cursor_fg = '#0e0c0a',
+    cursor_border = "#fdffd1",
 
+    selection_fg = '#191613',
     selection_bg = '#f7f7f7',
-    selection_fg = '#3b3531',
 
     ansi = {
-      '#1c1714',
-      '#ff909d',
-      '#d3ffdb',
-      '#fdffd1',
-      '#aec1ff',
-      '#d19cff',
-      '#c9fafa',
-      '#f7f7f7',
+      "#0e0c0a",
+      "#ff909d",
+      "#d3ffdb",
+      "#fdffd1",
+      "#aec1ff",
+      "#ddb6ff",
+      "#c9fafa",
+      "#f7f7f7",
     },
 
     brights = {
-      "#12100e",
-      "#ff5766",
+      "#000000",
+      "#ff6571",
       "#89ffcb",
-      "#ffb699",
-      "#aec1ff",
-      "#ffb1f5",
-      "#c9fafa",
+      "#ffff99",
+      "#7d9eff",
+      "#aa93ff",
+      "#95fbfb",
       "#ffffff",
     },
   }
 
-  config.font = wezterm.font_with_fallback {
-    'Berkeley Mono SemiCondensed',
+config.font = wezterm.font_with_fallback {
+  'Berkeley Mono SemiCondensed',
     'Hack Nerd Font',
-  }
+}
 
-  config.font_size = ${toString cfg.emulator.font_size}
-  config.line_height = ${toString cfg.emulator.line_height}
-  config.enable_tab_bar = false
-  config.window_padding = {
-    left = ${toString (elemAt cfg.emulator.padding 0)},
-    right = ${toString (elemAt cfg.emulator.padding 1)},
-    top = ${toString (elemAt cfg.emulator.padding 2)},
-    bottom = ${toString (elemAt cfg.emulator.padding 3)},
-  }
+config.font_size = ${toString cfg.emulator.font_size}
+config.line_height = ${toString cfg.emulator.line_height}
+config.enable_tab_bar = false
+config.window_padding = {
+  left = ${toString (elemAt cfg.emulator.padding 0)},
+  right = ${toString (elemAt cfg.emulator.padding 1)},
+  top = ${toString (elemAt cfg.emulator.padding 2)},
+  bottom = ${toString (elemAt cfg.emulator.padding 3)},
+}
 
-  config.front_end = "OpenGL"
+config.front_end = "OpenGL"
 
-  config.default_prog = { "tmux", "new-session", "-A", "-s", "scripting" }
+config.default_prog = { "tmux", "new-session", "-A", "-s", "scripting" }
 
-  return config
+return config
 ''
