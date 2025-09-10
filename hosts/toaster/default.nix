@@ -13,6 +13,7 @@
         gimp # Image editor
         gemini-cli # AI agent
         d-spy
+        ghostty
       ];
     };
   };
@@ -26,19 +27,20 @@
     };
   };
 
-  desktop = {
-    enableFor = ["carson"];
-    compositor = {
-      monitors = [",preferred,auto,1"];
-      extraConfig = ''
-        cursor {
-          no_hardware_cursors = 0
-          use_cpu_buffer = 1
-        }
-      '';
+  programs.niri.enable = true;
+  systemPackages = with pkgs; [
+    wl-clipboard
+    quickshell
+    bibata-cursors
+  ];
+  sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+  hardware = {
+    graphics = {
+      enable32Bit = true;
+      enable = true;
     };
-    variables = ["LIBVA_DRIVER_NAME,nvidia" "XDG_SESSION_TYPE,wayland" "GBM_BACKEND,nvidia-drm" "__GLX_VENDOR_LIBRARY_NAME,nvidia"];
-    wallpaper = ./wallpaper.jpg;
   };
 
   # Nvidia on Wayland...
