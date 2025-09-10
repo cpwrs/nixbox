@@ -15,6 +15,7 @@ in {
     enableFor = mkOption {
       type = types.listOf (types.str);
       description = "Name(s) of user(s) to enable the desktop suite for.";
+      default = [];
     };
 
     compositor = {

@@ -28,12 +28,12 @@
   };
 
   programs.niri.enable = true;
-  systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     wl-clipboard
     quickshell
     bibata-cursors
   ];
-  sessionVariables = {
+  environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
   hardware = {
