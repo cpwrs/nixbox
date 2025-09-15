@@ -21,6 +21,7 @@
         opencode # AI agent
         ghostty # Terminal
         d-spy
+        texliveSmall # TeX Live environment
       ];
     };
   };
