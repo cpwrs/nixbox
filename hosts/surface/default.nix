@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
+  networking.hostName = "surface";
+
   imports = [
     ./hardware.nix
+    ../../modules/common
+    ../../modules/nvidia.nix
+    ../../modules/niri.nix
     # Custom kernel for surface
     inputs.nixos-hardware.nixosModules.microsoft-surface-common
   ];
-  networking.hostName = "surface";
 
   users.users = {
     carson = {
@@ -21,30 +25,6 @@
         gimp # Image editor
         gemini-cli # AI agent
       ];
-    };
-  };
-
-  desktop = {
-    enableFor = ["carson"];
-    compositor = {
-      monitors = [",preferred,auto,1.60"];
-      border_radius = 10;
-      gap_size = 10;
-      binds = [
-        "bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        "bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        "bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        "bindl = , XF86AudioPlay, exec, playerctl play-pause"
-      ];
-    };
-  };
-
-  terminal = {
-    enableFor = ["carson"];
-    emulator = {
-      font_size = 18;
-      line_height = 0.9;
-      padding = [14 14 14 14];
     };
   };
 
@@ -71,9 +51,21 @@
     tlp.enable = true;
   };
 
-  # Start evremap as root for capslock = ctrl (hold) or esc (tab)
-  evremap = {
-    enable = true;
-    config = ./evremap.toml;
+  # Start evremap as root for capslock = crtl (hold) or esc (tap)
+  environment.systemPackages = with pkgs; [
+    evremap
+  ];
+  systemd.services.evremap = {
+    description = "evremap-service";
+    wantedBy = ["multi-user.target"];
+    restartTriggers = [./evremap.toml];
+
+    serviceConfig = {
+      User = "root";
+      Group = "root";
+      ExecStart = "${pkgs.evremap}/bin/evremap remap ${./evremap.toml}";
+      Restart = "always";
+      WorkingDirectory = "/";
+    };
   };
 }

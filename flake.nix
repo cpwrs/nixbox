@@ -29,19 +29,14 @@
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
-    inherit (builtins) readDir;
-    inherit (nixpkgs.lib) mapAttrs mapAttrsToList const;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    allModules = mapAttrsToList (name: _: ./modules/${name}) (readDir ./modules);
   in {
-    nixosConfigurations = mapAttrs (name:
-      const (nixpkgs.lib.nixosSystem {
+    nixosConfigurations = nixpkgs.lib.mapAttrs (name:
+      nixpkgs.lib.const (nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
-        modules =
-          allModules
-          ++ [./hosts/${name} ./common];
-      })) (readDir ./hosts);
+        modules = [./hosts/${name}];
+      })) (builtins.readDir ./hosts);
 
     devShells.${system}.default = pkgs.mkShell {
       packages = [
