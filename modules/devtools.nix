@@ -18,6 +18,21 @@
       fzf
       lazygit
       inputs.envy.packages.${pkgs.system}.default
+      gdb
+
+
+      # LSP
+      clang-tools
+      rust-analyzer
+      typescript-language-server
+      nixd
+      texlab
+      gopls
+      pyright
+      ocaml-lsp
+      haskell-languge-server
+      lua-language-server
+      svelte-language-server
     ];
   };
 

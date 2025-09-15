@@ -21,7 +21,8 @@
         opencode # AI agent
         ghostty # Terminal
         d-spy
-        texliveSmall # TeX Live environment
+        texliveMedium # TeX Live environment
+        zathura # PDF Viewer
       ];
     };
   };
