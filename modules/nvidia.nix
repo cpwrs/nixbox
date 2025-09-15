@@ -1,4 +1,5 @@
 {...}: {
+  services.xserver.videoDrivers = ["nvidia"];
   hardware = {
     graphics = {
       enable32Bit = true;
