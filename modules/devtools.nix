@@ -29,8 +29,6 @@
       texlab
       gopls
       pyright
-      ocaml-lsp
-      haskell-languge-server
       lua-language-server
       svelte-language-server
     ];
