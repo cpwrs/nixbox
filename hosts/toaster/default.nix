@@ -12,7 +12,7 @@
   users.users = {
     carson = {
       isNormalUser = true;
-      extraGroups = ["wheel"];
+      extraGroups = ["wheel" "video"];
       packages = with pkgs; [
         brave # Browser
         mutt # Mail client

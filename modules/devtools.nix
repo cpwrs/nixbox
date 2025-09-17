@@ -19,7 +19,10 @@
       lazygit
       inputs.envy.packages.${pkgs.system}.default
       gdb
-
+      usbutils
+      ffmpeg_6
+      psmisc
+      pciutils
 
       # LSP
       clang-tools
