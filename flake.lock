@@ -44,11 +44,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1757963021,
-        "narHash": "sha256-dzEBmKardnVzzKYylT182q3IvN2zuM/oZDa32dtYfaQ=",
+        "lastModified": 1758135495,
+        "narHash": "sha256-FaykUzmp3+dkCNZ4hIweswwR4YxH7pn0FbcrOLQNWJc=",
         "owner": "cpwrs",
         "repo": "envy",
-        "rev": "8f9e473a5c7d2901890161199ed6b045a45255f5",
+        "rev": "b570bb1fec26755c537d6f0e82eecd1e652238d1",
         "type": "github"
       },
       "original": {

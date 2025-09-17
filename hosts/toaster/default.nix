@@ -6,6 +6,7 @@
     ../../modules/niri.nix
     ../../modules/nvidia.nix
     ../../modules/devtools.nix
+    ../../modules/shell.nix
     ../../modules/common
   ];
 
