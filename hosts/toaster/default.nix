@@ -6,7 +6,6 @@
     ../../modules/niri.nix
     ../../modules/nvidia.nix
     ../../modules/devtools.nix
-    ../../modules/shell.nix
     ../../modules/common
   ];
 
@@ -15,15 +14,17 @@
       isNormalUser = true;
       extraGroups = ["wheel" "video"];
       packages = with pkgs; [
-        brave # Browser
-        mutt # Mail client
-        typora # Markdown renderer
-        gimp # Image editor
-        opencode # AI agent
-        ghostty # Terminal
+        brave
+        typora
+        gimp
+        opencode
+        ghostty
         d-spy
-        texliveMedium # TeX Live environment
-        zathura # PDF Viewer
+        zathura
+        zoom-us
+        discord
+        obs-studio
+        ffmpeg_6
       ];
     };
   };

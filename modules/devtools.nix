@@ -5,26 +5,27 @@
 }: {
   environment = {
     systemPackages = with pkgs; [
+      inputs.envy.packages.${pkgs.system}.default
       tmux
       git
+      vim
+      gdb
+      python3
+
+      pciutils
+      psmisc
+      usbutils
+      lazygit
+      gh
+      btop
+      wget
       zip
       unzip
-      wget
-      vim
-      btop
-      ripgrep
-      gh
       jq
+      fd
       fzf
-      lazygit
-      inputs.envy.packages.${pkgs.system}.default
-      gdb
-      usbutils
-      ffmpeg_6
-      psmisc
-      pciutils
+      ripgrep
 
-      # LSP
       clang-tools
       rust-analyzer
       typescript-language-server

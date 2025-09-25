@@ -3,8 +3,10 @@
   environment = {
     systemPackages = with pkgs; [
       niri
+      xwayland-satellite
       wl-clipboard
       bibata-cursors
+      quickshell
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
@@ -25,5 +27,14 @@
       kdePackages.xdg-desktop-portal-kde
     ];
     xdgOpenUsePortal = true;
+  };
+
+  services.displayManager = {
+    sessionPackages = [ pkgs.niri ];
+    defaultSession = "niri";
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
   };
 }
