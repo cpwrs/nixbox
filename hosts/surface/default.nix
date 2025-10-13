@@ -10,6 +10,8 @@
     ../../modules/common
     ../../modules/nvidia.nix
     ../../modules/niri.nix
+    ../../modules/polkit.nix
+    ../../modules/devtools.nix
     # Custom kernel for surface
     inputs.nixos-hardware.nixosModules.microsoft-surface-common
   ];
@@ -19,11 +21,14 @@
       isNormalUser = true;
       extraGroups = ["wheel"];
       packages = with pkgs; [
-        brave # Browser
-        mutt # Mail client
-        typora # Markdown renderer
-        gimp # Image editor
-        gemini-cli # AI agent
+        brave
+        typora
+        gimp
+        opencode
+        ghostty
+        zathura
+        zoom-us
+        discord
       ];
     };
   };
