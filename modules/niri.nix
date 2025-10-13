@@ -1,5 +1,7 @@
 # Niri compositor and dependencies
+# Niri optionally depends on polkit to start up xwayland-satellite and set $DISPLAY
 {pkgs, ...}: {
+  security.polkit.enable = true;
   environment = {
     systemPackages = with pkgs; [
       niri
@@ -30,7 +32,7 @@
   };
 
   services.displayManager = {
-    sessionPackages = [ pkgs.niri ];
+    sessionPackages = [pkgs.niri];
     defaultSession = "niri";
     sddm = {
       enable = true;

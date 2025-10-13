@@ -25,6 +25,7 @@
       fd
       fzf
       ripgrep
+      stow
 
       clang-tools
       rust-analyzer

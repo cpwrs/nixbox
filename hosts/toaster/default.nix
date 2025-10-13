@@ -4,6 +4,7 @@
   imports = [
     ./hardware.nix
     ../../modules/niri.nix
+    ../../modules/polkit.nix
     ../../modules/nvidia.nix
     ../../modules/devtools.nix
     ../../modules/common
