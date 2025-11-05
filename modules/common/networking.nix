@@ -2,13 +2,12 @@
   config,
   lib,
   ...
-}: let
-  inherit (lib) attrNames;
-in {
-  users.extraGroups.networkmanager.members = attrNames config.users.users;
+}: {
+  users.extraGroups.networkmanager.members = lib.attrNames config.users.users;
   networking = {
     networkmanager.enable = true;
-
+    # Cloudflare
+    nameservers = ["1.1.1.1" "1.0.0.1"];
     firewall = {
       enable = true;
       allowedTCPPorts = [22];

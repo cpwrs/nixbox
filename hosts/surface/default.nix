@@ -6,14 +6,12 @@
   networking.hostName = "surface";
 
   imports = [
-    ./hardware.nix
-    ../../modules/common
-    ../../modules/nvidia.nix
-    ../../modules/niri.nix
-    ../../modules/polkit.nix
-    ../../modules/devtools.nix
     # Custom kernel for surface
     inputs.nixos-hardware.nixosModules.microsoft-surface-common
+
+    ./hardware.nix
+    ../../modules/desktop.nix
+    ../../modules/devtools.nix
   ];
 
   users.users = {
@@ -33,8 +31,8 @@
     };
   };
 
+  # Get root function keys working
   services = {
-    # Get root function keys working
     actkbd = {
       enable = true;
       bindings = [

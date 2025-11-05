@@ -3,11 +3,8 @@
 
   imports = [
     ./hardware.nix
-    ../../modules/niri.nix
-    ../../modules/polkit.nix
-    ../../modules/nvidia.nix
+    ../../modules/desktop.nix
     ../../modules/devtools.nix
-    ../../modules/common
   ];
 
   users.users = {

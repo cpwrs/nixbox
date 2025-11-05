@@ -27,15 +27,8 @@
       ripgrep
       stow
 
-      clang-tools
-      rust-analyzer
-      typescript-language-server
-      nixd
-      texlab
-      gopls
-      pyright
-      lua-language-server
-      svelte-language-server
+      man-pages
+      man-pages-posix
     ];
   };
 
@@ -44,5 +37,25 @@
       enable = true;
       nix-direnv.enable = true;
     };
+  };
+
+  documentation = {
+    man.enable = true;
+  };
+
+  # Don't build the immutable cache every rebuild
+  # Just once weekly at 4AM
+  systemd.services."build-man-cache" = {
+    description = "Build the immutable man pages cache";
+    startAt = "Sun 04:00";
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
+    path = [pkgs.coreutils];
+    script = ''
+      mkdir -p /var/cache/man/nixos
+      ${pkgs.man-db}/bin/mandb
+    '';
   };
 }

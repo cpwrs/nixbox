@@ -17,5 +17,13 @@
     '';
   };
 
-  hardware.microsoft-surface.kernelVersion = "stable";
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware = {
+    microsoft-surface.kernelVersion = "stable";
+    nvidia = {
+      # Can't use open drivers, this card doesn't have GSP firmware
+      open = false;
+      modesetting.enable = true;
+    };
+  };
 }

@@ -35,7 +35,7 @@
     nixosConfigurations = nixpkgs.lib.mapAttrs (name:
       nixpkgs.lib.const (nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
-        modules = [./hosts/${name}];
+        modules = [./hosts/${name} ./modules/common];
       })) (builtins.readDir ./hosts);
 
     devShells.${system}.default = pkgs.mkShell {
