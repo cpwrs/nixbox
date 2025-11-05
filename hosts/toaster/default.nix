@@ -3,8 +3,6 @@
 
   imports = [
     ./hardware.nix
-    ../../modules/desktop.nix
-    ../../modules/devtools.nix
   ];
 
   users.users = {

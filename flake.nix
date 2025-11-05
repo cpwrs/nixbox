@@ -29,20 +29,52 @@
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    nixosConfigurations = nixpkgs.lib.mapAttrs (name:
-      nixpkgs.lib.const (nixpkgs.lib.nixosSystem {
+    forEachSystem = fn:
+      nixpkgs.lib.genAttrs
+      nixpkgs.lib.platforms.linux
+      (system: fn system nixpkgs.legacyPackages.${system});
+  in rec {
+    nixosConfigurations = {
+      toaster = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         specialArgs.inputs = inputs;
-        modules = [./hosts/${name} ./modules/common];
-      })) (builtins.readDir ./hosts);
-
-    devShells.${system}.default = pkgs.mkShell {
-      packages = [
-        pkgs.nixd # nix ls
-        pkgs.alejandra
-      ];
+        modules = [
+          ./hosts/toaster
+          ./modules/common
+          ./modules/desktop.nix
+          ./modules/devtools.nix
+        ];
+      };
+      surface = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs.inputs = inputs;
+        modules = [
+          ./hosts/surface
+          ./modules/common
+          ./modules/desktop.nix
+          ./modules/devtools.nix
+        ];
+      };
+      sd-image = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs.inputs = inputs;
+        modules = [
+          ./images/sd-image.nix
+          ./modules/devtools.nix
+          {nixpkgs.hostPlatform = {system = "aarch64-linux";};}
+        ];
+      };
     };
+
+    packages.aarch64-linx.sd-image = nixosConfigurations.sd-image.config.system.build.sdImage;
+
+    devShells = forEachSystem (system: pkgs: {
+      default = pkgs.mkShell {
+        packages = [
+          pkgs.nixd
+          pkgs.alejandra
+        ];
+      };
+    });
   };
 }

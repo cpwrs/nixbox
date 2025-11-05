@@ -8,10 +8,7 @@
   imports = [
     # Custom kernel for surface
     inputs.nixos-hardware.nixosModules.microsoft-surface-common
-
     ./hardware.nix
-    ../../modules/desktop.nix
-    ../../modules/devtools.nix
   ];
 
   users.users = {
