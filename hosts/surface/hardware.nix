@@ -1,5 +1,9 @@
-{...}: {
-  imports = [./hardware-configuration.nix];
+{inputs, ...}: {
+  imports = [
+    ./hardware-configuration.nix
+    # Custom kernel for surface
+    inputs.nixos-hardware.nixosModules.microsoft-surface-common
+  ];
 
   boot = {
     loader = {

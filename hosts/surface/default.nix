@@ -4,12 +4,7 @@
   ...
 }: {
   networking.hostName = "surface";
-
-  imports = [
-    # Custom kernel for surface
-    inputs.nixos-hardware.nixosModules.microsoft-surface-common
-    ./hardware.nix
-  ];
+  imports = [./hardware.nix];
 
   users.users = {
     carson = {

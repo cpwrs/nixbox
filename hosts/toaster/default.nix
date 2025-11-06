@@ -1,9 +1,6 @@
 {pkgs, ...}: {
   networking.hostName = "toaster";
-
-  imports = [
-    ./hardware.nix
-  ];
+  imports = [./hardware.nix];
 
   users.users = {
     carson = {
