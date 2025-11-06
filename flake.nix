@@ -66,7 +66,7 @@
       };
     };
 
-    packages."aarch64-linux".sd-image = nixosConfigurations.sd-image.config.system.build.sdImage;
+    packages.aarch64-linux.sd-image = nixosConfigurations.sd-image.config.system.build.sdImage;
 
     devShells = forEachSystem (system: pkgs: {
       default = pkgs.mkShell {

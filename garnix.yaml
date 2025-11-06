@@ -1,0 +1,8 @@
+builds:
+  exclude: []
+  include:
+    - '*.x86_64-linux.*'
+    - devShell.x86_64-linux
+    - nixosConfigurations.*
+    - packages.aarch64-linux.sd-image
+  branch: main
