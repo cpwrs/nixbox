@@ -43,7 +43,7 @@
           ./modules/common
           ./modules/desktop.nix
           ./modules/devtools.nix
-          {nixpkgs.hostPlatform.system = "x86_64-linux";}
+          ./modules/tailscale.nix
         ];
       };
       surface = nixpkgs.lib.nixosSystem {
@@ -53,7 +53,7 @@
           ./modules/common
           ./modules/desktop.nix
           ./modules/devtools.nix
-          {nixpkgs.hostPlatform.system = "x86_64-linux";}
+          ./modules/tailscale.nix
         ];
       };
       pi = nixpkgs.lib.nixosSystem {
@@ -62,15 +62,13 @@
           ./hosts/pi
           ./modules/common
           ./modules/devtools.nix
-          {nixpkgs.hostPlatform.system = "aarch64-linux";}
+          ./modules/tailscale.nix
         ];
       };
       sd-image = nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
         modules = [
           ./images/sd-image.nix
-          ./modules/devtools.nix
-          {nixpkgs.hostPlatform.system = "aarch64-linux";}
         ];
       };
     };
