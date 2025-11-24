@@ -13,7 +13,7 @@
         powersave = false;
         backend = "iwd";
       };
-      dns = lib.mkForce "none";
+      dns = "systemd-resolved";
     };
     firewall = {
       enable = true;
@@ -23,17 +23,10 @@
   services.resolved = {
     enable = true;
     extraConfig = ''
-      DNS=1.1.1.1 1.0.0.1
+      DNS=2606:4700:4700::1111 2606:4700:4700::1001 1.1.1.1 1.0.0.1
+      DNSOverTls=opportunistic
       Domains=~.
     '';
   };
-  systemd.network.enable = true;
   services.tailscale.enable = true;
-  systemd.network.networks."99-tailscale" = {
-    matchConfig.Name = "tailscale0";
-    networkConfig = {
-      DNS = "100.100.100.100" ;
-      Domains = "~ts.net";
-    };
-  };
 }
