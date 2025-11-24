@@ -43,7 +43,6 @@
           ./modules/common
           ./modules/desktop.nix
           ./modules/devtools.nix
-          ./modules/tailscale.nix
         ];
       };
       surface = nixpkgs.lib.nixosSystem {
@@ -53,7 +52,6 @@
           ./modules/common
           ./modules/desktop.nix
           ./modules/devtools.nix
-          ./modules/tailscale.nix
         ];
       };
       pi = nixpkgs.lib.nixosSystem {
@@ -62,7 +60,6 @@
           ./hosts/pi
           ./modules/common
           ./modules/devtools.nix
-          ./modules/tailscale.nix
         ];
       };
       sd-image = nixpkgs.lib.nixosSystem {
