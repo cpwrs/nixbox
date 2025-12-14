@@ -15,9 +15,9 @@
         d-spy
         zathura
         zoom-us
-        discord
         obs-studio
         ffmpeg_6
+        obsidian
       ];
     };
   };

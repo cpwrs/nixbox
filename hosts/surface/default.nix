@@ -18,7 +18,7 @@
         ghostty
         zathura
         zoom-us
-        discord
+        obsidian
       ];
     };
   };
