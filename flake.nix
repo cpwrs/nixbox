@@ -26,6 +26,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     envy.url = "github:cpwrs/envy";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
@@ -43,6 +47,7 @@
           ./modules/common
           ./modules/desktop.nix
           ./modules/devtools.nix
+          inputs.nur.modules.nixos.default
         ];
       };
       surface = nixpkgs.lib.nixosSystem {
@@ -52,6 +57,7 @@
           ./modules/common
           ./modules/desktop.nix
           ./modules/devtools.nix
+          inputs.nur.modules.nixos.default
         ];
       };
       pi = nixpkgs.lib.nixosSystem {

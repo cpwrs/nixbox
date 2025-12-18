@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   networking.hostName = "surface";
   imports = [./hardware.nix];
 
@@ -11,7 +7,7 @@
       isNormalUser = true;
       extraGroups = ["wheel"];
       packages = with pkgs; [
-        brave
+        pkgs.nur.repos.Ev357.helium
         typora
         gimp
         opencode
