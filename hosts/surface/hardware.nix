@@ -19,6 +19,12 @@
     extraModprobeConfig = ''
       softdep soc_button_array pre: pinctrl_sunrisepoint
     '';
+
+    # https://github.com/NixOS/nixos-hardware/issues/1685
+    kernelPatches = [{
+      name = "rust-1.91-fix";
+      patch = ./rust-fix.patch;
+    }];
   };
 
   services.xserver.videoDrivers = ["nvidia"];
