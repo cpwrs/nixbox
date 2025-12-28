@@ -54,6 +54,8 @@
     xdgOpenUsePortal = true;
   };
 
+  services.upower.enable = true;
+
   # Display manager
   services.displayManager = {
     sessionPackages = [pkgs.niri];
@@ -63,6 +65,7 @@
       wayland.enable = true;
     };
   };
+
 
   # Bluetooth
   hardware.bluetooth = {
