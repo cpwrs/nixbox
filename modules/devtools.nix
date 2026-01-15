@@ -26,6 +26,7 @@
       fzf
       ripgrep
       stow
+      devenv
 
       man-pages
       man-pages-posix
