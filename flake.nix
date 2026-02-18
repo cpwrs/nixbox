@@ -30,6 +30,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
@@ -66,6 +70,7 @@
           ./hosts/pi
           ./modules/common
           ./modules/devtools.nix
+          inputs.disko.nixosModules.disko
         ];
       };
       sd-image = nixpkgs.lib.nixosSystem {

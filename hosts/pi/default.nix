@@ -1,6 +1,9 @@
 {pkgs, ...}: {
   networking.hostName = "pi";
-  imports = [./hardware.nix];
+  imports = [
+    ./hardware.nix
+    ./disk.nix
+  ];
 
   environment.systemPackages = with pkgs; [
     libraspberrypi
