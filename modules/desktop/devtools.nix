@@ -15,6 +15,7 @@
       pciutils
       psmisc
       usbutils
+      read
       lazygit
       gh
       btop

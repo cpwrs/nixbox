@@ -19,4 +19,24 @@
       ];
     };
   };
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
+  };
+
+  networking = {
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [22 80 443]; # SSH, HTTP, HTTPS
+    };
+  };
+
+  services.resolved.enable = true;
+  services.tailscale.enable = true;
+
+  system.stateVersion = "25.11";
 }

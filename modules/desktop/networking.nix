@@ -23,6 +23,7 @@
       allowedTCPPorts = [22]; # SSH
     };
   };
+
   services.resolved = {
     enable = true;
     settings.Resolve.DNSOverTLS = "opportunistic";

@@ -1,6 +1,11 @@
-# All the essentials for a usable desktop experience
-# TODO: Secret agent, quickshell config, 
+# All the essentials for my desktop!
 {pkgs, ...}: {
+  imports = [
+    ./devtools.nix
+    ./networking.nix
+    ./ssh.nix
+  ];
+
   hardware.graphics = {
     enable32Bit = true;
     enable = true;
@@ -65,7 +70,6 @@
       wayland.enable = true;
     };
   };
-
 
   # Bluetooth
   hardware.bluetooth = {

@@ -48,9 +48,8 @@
         specialArgs.inputs = inputs;
         modules = [
           ./hosts/toaster
-          ./modules/common
-          ./modules/desktop.nix
-          ./modules/devtools.nix
+          ./modules/desktop
+          ./modules/meta.nix
           inputs.nur.modules.nixos.default
         ];
       };
@@ -58,9 +57,8 @@
         specialArgs.inputs = inputs;
         modules = [
           ./hosts/surface
-          ./modules/common
-          ./modules/desktop.nix
-          ./modules/devtools.nix
+          ./modules/desktop
+          ./modules/meta.nix
           inputs.nur.modules.nixos.default
         ];
       };
@@ -68,8 +66,7 @@
         specialArgs.inputs = inputs;
         modules = [
           ./hosts/pi
-          ./modules/common
-          ./modules/devtools.nix
+          ./modules/meta.nix
           inputs.disko.nixosModules.disko
         ];
       };
