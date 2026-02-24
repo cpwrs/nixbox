@@ -6,6 +6,24 @@
     ./ssh.nix
   ];
 
+  users.users.carson = {
+    isNormalUser = true;
+    extraGroups = ["wheel" "video"];
+    packages = with pkgs; [
+      pkgs.nur.repos.Ev357.helium
+      gimp
+      opencode
+      ghostty
+      d-spy
+      zathura
+      obs-studio
+      ffmpeg_6
+      obsidian
+      kdePackages.dolphin
+      kdePackages.okular
+    ];
+  };
+
   hardware.graphics = {
     enable32Bit = true;
     enable = true;

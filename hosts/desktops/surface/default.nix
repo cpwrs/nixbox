@@ -2,23 +2,6 @@
   networking.hostName = "surface";
   imports = [./hardware.nix];
 
-  users.users = {
-    carson = {
-      isNormalUser = true;
-      extraGroups = ["wheel"];
-      packages = with pkgs; [
-        pkgs.nur.repos.Ev357.helium
-        typora
-        gimp
-        opencode
-        ghostty
-        zathura
-        zoom-us
-        obsidian
-      ];
-    };
-  };
-
   # Get root function keys working
   services = {
     actkbd = {

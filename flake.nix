@@ -47,7 +47,7 @@
       toaster = nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
         modules = [
-          ./hosts/toaster
+          ./hosts/desktops/toaster
           ./modules/desktop
           ./modules/meta.nix
           inputs.nur.modules.nixos.default
@@ -56,7 +56,7 @@
       surface = nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
         modules = [
-          ./hosts/surface
+          ./hosts/desktops/surface
           ./modules/desktop
           ./modules/meta.nix
           inputs.nur.modules.nixos.default
@@ -65,7 +65,7 @@
       pi = nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
         modules = [
-          ./hosts/pi
+          ./hosts/servers/pi
           ./modules/meta.nix
           inputs.disko.nixosModules.disko
         ];
