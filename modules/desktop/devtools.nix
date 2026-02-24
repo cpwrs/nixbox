@@ -12,11 +12,12 @@
       gdb
       python3
 
+      binutils
       pciutils
       psmisc
       usbutils
-      read
       lazygit
+      nmap
       gh
       btop
       wget
