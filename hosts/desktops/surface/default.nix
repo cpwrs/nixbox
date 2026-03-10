@@ -43,5 +43,6 @@
     };
   };
 
+  time.timeZone = "America/Chicago";
   system.stateVersion = "25.11";
 }
