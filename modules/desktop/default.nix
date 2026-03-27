@@ -1,27 +1,63 @@
 # All the essentials for my desktop!
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./devtools.nix
     ./networking.nix
     ./ssh.nix
+    inputs.qtengine.nixosModules.default
   ];
 
   users.users.carson = {
     isNormalUser = true;
     extraGroups = ["wheel" "video"];
     packages = with pkgs; [
-      pkgs.nur.repos.Ev357.helium
+      inputs.helium.packages.${pkgs.system}.helium
       gimp
       opencode
       ghostty
       d-spy
+      hotspot
       zathura
+      wireshark
       obs-studio
       ffmpeg_6
       obsidian
       kdePackages.dolphin
       kdePackages.okular
+      kdePackages.kcalc
     ];
+  };
+
+  # KDE
+  programs.qtengine = {
+    enable = true;
+
+    config = {
+      theme = {
+        colorScheme = "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors";
+        iconTheme = "breeze-dark";
+        style = "breeze";
+        fontFixed.family = "Berkeley Mono SemiCondensed";
+        fontFixed.size = 12;
+        font.family = "DejaVu Sans";
+        font.size = 12;
+      };
+
+      misc = {
+        singleClickActivate = false;
+        menusHaveIcons = true;
+        shortcutsForContextMenus = true;
+      };
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = null;
   };
 
   hardware.graphics = {
@@ -46,7 +82,7 @@
     };
   };
 
-  # Wayland compositor, graphical shell, cursors, clipboard
+  # Wayland compositor, graphical shell, cursors, clipboard, and Qt!
   environment = {
     systemPackages = with pkgs; [
       niri
@@ -54,6 +90,12 @@
       wl-clipboard
       bibata-cursors
       quickshell
+
+      qt6.qtwayland
+      kdePackages.breeze
+      kdePackages.breeze.qt5
+      kdePackages.breeze-icons
+      qt6.qtsvg
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

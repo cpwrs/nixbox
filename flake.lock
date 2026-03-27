@@ -3,11 +3,11 @@
     "americano": {
       "flake": false,
       "locked": {
-        "lastModified": 1774410295,
-        "narHash": "sha256-vjWBLg+z6bWuT6x+Vqn+dERYvykGRFIiOBJDmSN7MBE=",
+        "lastModified": 1774563300,
+        "narHash": "sha256-x2+1oSuoLyLGcnzHIki4DVEA9D3/ZeWvIBW3W2I59t0=",
         "owner": "cpwrs",
         "repo": "americano.nvim",
-        "rev": "c1ca4a856a5400961a6ce6190efa1d188f83a323",
+        "rev": "b7115a52b132b1cac516e98a237e225fbd3c3f1d",
         "type": "github"
       },
       "original": {
@@ -64,11 +64,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1774411071,
-        "narHash": "sha256-5VONPh75VOu8bWBha0ds69wvAljFRF+GGNer8pL8VwU=",
+        "lastModified": 1774582675,
+        "narHash": "sha256-xzJ+QbvqhbGnkB8w/bv0HOlGtq9Ff267f4WMJKhEFr0=",
         "owner": "cpwrs",
         "repo": "envy",
-        "rev": "9c369a26e9721bb0999eb618630d9c16069c0ead",
+        "rev": "b5c4c19e09b165ebb9f5f7ce74b22ba82db0f5ea",
         "type": "github"
       },
       "original": {
@@ -118,34 +118,33 @@
         "type": "github"
       }
     },
-    "flake-parts_2": {
+    "helium": {
       "inputs": {
-        "nixpkgs-lib": [
-          "nur",
+        "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1733312601,
-        "narHash": "sha256-4pDvzqnegAfRkPwO3wmwBhVi/Sye1mzps0zHWYnP88c=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "205b12d8b7cd4802fbcb8e8ef6a0f1408781a4f9",
+        "lastModified": 1774471299,
+        "narHash": "sha256-2c5vpl2WUUvXR4VPMjzKnGxdnVfkjblmd06Le0s/pMI=",
+        "owner": "amaanq",
+        "repo": "helium-flake",
+        "rev": "9dce150ececbf2996d356b96d90fe8468cca8871",
         "type": "github"
       },
       "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
+        "owner": "amaanq",
+        "repo": "helium-flake",
         "type": "github"
       }
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1774018263,
-        "narHash": "sha256-HHYEwK1A22aSaxv2ibhMMkKvrDGKGlA/qObG4smrSqc=",
+        "lastModified": 1774567711,
+        "narHash": "sha256-uVlOHBvt6Vc/iYNJXLPa4c3cLXwMllOCVfAaLAcphIo=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "2d4b4717b2534fad5c715968c1cece04a172b365",
+        "rev": "3f6f874dfc34d386d10e434c48ad966c4832243e",
         "type": "github"
       },
       "original": {
@@ -187,11 +186,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1774106199,
-        "narHash": "sha256-US5Tda2sKmjrg2lNHQL3jRQ6p96cgfWh3J1QBliQ8Ws=",
+        "lastModified": 1774386573,
+        "narHash": "sha256-4hAV26quOxdC6iyG7kYaZcM3VOskcPUrdCQd/nx8obc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "6c9a78c09ff4d6c21d0319114873508a6ec01655",
+        "rev": "46db2e09e1d3f113a13c0d7b81e2f221c63b8ce9",
         "type": "github"
       },
       "original": {
@@ -203,11 +202,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1774106199,
-        "narHash": "sha256-US5Tda2sKmjrg2lNHQL3jRQ6p96cgfWh3J1QBliQ8Ws=",
+        "lastModified": 1774386573,
+        "narHash": "sha256-4hAV26quOxdC6iyG7kYaZcM3VOskcPUrdCQd/nx8obc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "6c9a78c09ff4d6c21d0319114873508a6ec01655",
+        "rev": "46db2e09e1d3f113a13c0d7b81e2f221c63b8ce9",
         "type": "github"
       },
       "original": {
@@ -217,24 +216,23 @@
         "type": "github"
       }
     },
-    "nur": {
+    "qtengine": {
       "inputs": {
-        "flake-parts": "flake-parts_2",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1774408691,
-        "narHash": "sha256-JfAB/2b2qW8w2m64QX5bBDk6CPj4Jq8seYDiZw8DB5c=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "4f5b2881efe2438928e97bb20033bfa3c5a6bdf7",
+        "lastModified": 1772766331,
+        "narHash": "sha256-aJ5ZdIX10nmhzMLjP6QMuFJHvljJD+xcojuKZjPkr70=",
+        "owner": "kossLAN",
+        "repo": "qtengine",
+        "rev": "abf8c1d3068dd10739b0671fa62f96c5347f276f",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
-        "repo": "NUR",
+        "owner": "kossLAN",
+        "repo": "qtengine",
         "type": "github"
       }
     },
@@ -242,9 +240,10 @@
       "inputs": {
         "disko": "disko",
         "envy": "envy",
+        "helium": "helium",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
-        "nur": "nur"
+        "qtengine": "qtengine"
       }
     },
     "rust-analyzer-src": {

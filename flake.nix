@@ -26,8 +26,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     envy.url = "github:cpwrs/envy";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nur = {
-      url = "github:nix-community/NUR";
+    helium = {
+      url = "github:amaanq/helium-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    qtengine = {
+      url = "github:kossLAN/qtengine";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -50,7 +54,6 @@
           ./hosts/desktops/toaster
           ./modules/desktop
           ./modules/meta.nix
-          inputs.nur.modules.nixos.default
         ];
       };
       surface = nixpkgs.lib.nixosSystem {
@@ -59,7 +62,6 @@
           ./hosts/desktops/surface
           ./modules/desktop
           ./modules/meta.nix
-          inputs.nur.modules.nixos.default
         ];
       };
       pi = nixpkgs.lib.nixosSystem {

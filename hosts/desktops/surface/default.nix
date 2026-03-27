@@ -3,23 +3,25 @@
   imports = [./hardware.nix];
 
   # Get root function keys working
-  services = {
-    actkbd = {
-      enable = true;
-      bindings = [
-        {
-          keys = [224];
-          events = ["key"];
-          command = "${pkgs.light}/bin/light -U 10";
-        } # Brightness down
-        {
-          keys = [225];
-          events = ["key"];
-          command = "${pkgs.light}/bin/light -A 10";
-        } # Brightness up
-      ];
-    };
+  # TODO: move to brightnessctl
+  # services = {
+  #   actkbd = {
+  #     enable = true;
+  #     bindings = [
+  #       {
+  #         keys = [224];
+  #         events = ["key"];
+  #         command = "${pkgs.light}/bin/light -U 10";
+  #       } # Brightness down
+  #       {
+  #         keys = [225];
+  #         events = ["key"];
+  #         command = "${pkgs.light}/bin/light -A 10";
+  #       } # Brightness up
+  #     ];
+  #   };
 
+  services = {
     # Powersaving / thermals
     thermald.enable = true;
     tlp.enable = true;
