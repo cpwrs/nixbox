@@ -38,8 +38,8 @@
 
     config = {
       theme = {
-        colorScheme = "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors";
-        iconTheme = "breeze-dark";
+        colorScheme = "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeLight.colors";
+        iconTheme = "breeze-light";
         style = "breeze";
         fontFixed.family = "Berkeley Mono SemiCondensed";
         fontFixed.size = 12;
