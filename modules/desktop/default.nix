@@ -11,26 +11,6 @@
     inputs.qtengine.nixosModules.default
   ];
 
-  users.users.carson = {
-    isNormalUser = true;
-    extraGroups = ["wheel" "video"];
-    packages = with pkgs; [
-      inputs.helium.packages.${pkgs.system}.helium
-      gimp
-      opencode
-      ghostty
-      d-spy
-      hotspot
-      zathura
-      wireshark
-      obs-studio
-      ffmpeg_6
-      obsidian
-      kdePackages.dolphin
-      kdePackages.okular
-    ];
-  };
-
   # KDE
   programs.qtengine = {
     enable = true;

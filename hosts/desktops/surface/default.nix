@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   networking.hostName = "surface";
   imports = [./hardware.nix];
 
@@ -20,6 +24,23 @@
   #       } # Brightness up
   #     ];
   #   };
+
+  users.users.carson = {
+    isNormalUser = true;
+    extraGroups = ["wheel" "video"];
+    packages = with pkgs; [
+      inputs.helium.packages.${pkgs.system}.helium
+      opencode
+      ghostty
+      zathura
+      obs-studio
+      obsidian
+      kdePackages.dolphin
+      kdePackages.okular
+      kdePackages.filelight
+      thunderbird
+    ];
+  };
 
   services = {
     # Powersaving / thermals
