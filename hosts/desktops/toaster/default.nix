@@ -25,7 +25,7 @@
       kdePackages.okular
       kdePackages.filelight
       thunderbird
-      kicad
+      kicad-small
     ];
   };
 
