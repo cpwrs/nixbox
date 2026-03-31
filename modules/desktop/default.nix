@@ -28,7 +28,6 @@
       obsidian
       kdePackages.dolphin
       kdePackages.okular
-      kdePackages.kcalc
     ];
   };
 
@@ -43,7 +42,7 @@
         style = "breeze";
         fontFixed.family = "Berkeley Mono SemiCondensed";
         fontFixed.size = 12;
-        font.family = "DejaVu Sans";
+        font.family = "Inter";
         font.size = 12;
       };
 
@@ -141,6 +140,7 @@
   fonts = {
     packages = with pkgs; [
       dejavu_fonts
+      inter
       nerd-fonts.jetbrains-mono
       noto-fonts-lgc-plus
       noto-fonts-color-emoji
