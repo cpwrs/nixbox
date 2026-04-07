@@ -16,6 +16,7 @@
       dns = lib.mkForce "none";
       settings = {
         main = {systemd-resolved = false;};
+        connectivity = {uri = "http://nmcheck.gnome.org/check_network_status.txt";};
       };
     };
     firewall = {
