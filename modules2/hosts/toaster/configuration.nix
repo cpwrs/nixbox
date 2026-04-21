@@ -1,6 +1,0 @@
-{
-  flake.modules.nixos.toaster = {...}: {
-    system.stateVersion = "25.11";
-    time.timeZone = "America/Chicago";
-  };
-}

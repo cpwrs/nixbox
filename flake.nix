@@ -47,5 +47,5 @@
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;}
-    (inputs.import-tree ./modules2);
+    (inputs.import-tree ./modules);
 }

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.evrmap = {
+  flake.modules.nixos.evremap = {
     pkgs,
     lib,
     config,
