@@ -20,5 +20,6 @@
     time.timeZone = "America/Chicago";
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     services.evremap.configFile = ./evremap.toml;
+    services.evremap.enable = true;
   };
 }
