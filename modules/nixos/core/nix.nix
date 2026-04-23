@@ -17,18 +17,15 @@
           "https://cache.garnix.io"
           "https://cache.nixos.org"
         ];
-
         extra-trusted-public-keys = [
           "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         ];
-
         experimental-features = [
           "flakes"
           "nix-command"
         ];
 
         http-connections = 50;
-        show-trace = true;
         warn-dirty = false;
         trusted-users = ["root" "@build" "@wheel" "@admin"];
       };
