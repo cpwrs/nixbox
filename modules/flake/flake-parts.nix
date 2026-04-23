@@ -1,3 +1,7 @@
 {inputs, ...}: {
-  imports = [inputs.flake-parts.flakeModules.modules];
+  imports = [
+    inputs.flake-parts.flakeModules.modules
+    ./dev-shell.nix
+    ./systems.nix
+  ];
 }
