@@ -11,7 +11,6 @@
 
       desktop
       dev
-      evremap
     ];
   };
 
@@ -19,7 +18,21 @@
     system.stateVersion = "25.11";
     time.timeZone = "America/Chicago";
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-    services.evremap.configFile = ./evremap.toml;
-    services.evremap.enable = true;
+
+    services.brightness.enable = true;
+    services.evremap = {
+      enable = true;
+      settings = {
+        device_name = "Microsoft Surface Keyboard";
+        phys = "usb-0000:00:14.0-1.3/input0";
+        dual_role = [
+          {
+            input = "KEY_CAPSLOCK";
+            hold = ["KEY_LEFTCTRL"];
+            tap = ["KEY_ESC"];
+          }
+        ];
+      };
+    };
   };
 }
