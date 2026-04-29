@@ -3,5 +3,6 @@
     network
     users
     nix
+    age
   ];
 }
