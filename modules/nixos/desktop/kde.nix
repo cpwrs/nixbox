@@ -7,7 +7,7 @@
       config = {
         theme = {
           colorScheme = "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeLight.colors";
-          iconTheme = "breeze-light";
+          iconTheme = "breeze";
           style = "breeze";
           fontFixed.family = "Berkeley Mono SemiCondensed";
           fontFixed.size = 12;

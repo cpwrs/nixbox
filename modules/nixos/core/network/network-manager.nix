@@ -22,7 +22,7 @@
       };
       firewall = {
         enable = true;
-        allowedTCPPorts = [22]; # SSH
+        interfaces.tailscale0.allowedTCPPorts = [22];
       };
     };
   };

@@ -4,5 +4,6 @@
     users
     nix
     age
+    yubikey
   ];
 }
