@@ -28,6 +28,7 @@ in {
     options.host = hostOptions;
 
     config = {
+      networking.hostName = config.host.name;
       system.stateVersion = config.host.stateVersion;
       nixpkgs.hostPlatform = config.host.system;
       time.timeZone = "America/Chicago";
