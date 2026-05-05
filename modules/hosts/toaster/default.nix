@@ -16,6 +16,7 @@ in {
       desktop
       dev
       nvidia
+      disko
     ];
   };
 
