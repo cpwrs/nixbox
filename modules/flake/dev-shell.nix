@@ -6,6 +6,7 @@
         alejandra
         age
         inputs.agenix.packages.${pkgs.system}.default
+        nixos-facter
       ];
     };
   };
