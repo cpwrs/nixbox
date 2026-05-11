@@ -11,11 +11,10 @@
 in {
   flake.nixosConfigurations.toaster = inputs.nixpkgs.lib.nixosSystem {
     modules = with config.flake.modules.nixos; [
-      core
       toaster
+      core
       carson
       desktop
-      dev
       nvidia
       disko
     ];

@@ -1,0 +1,14 @@
+# -- GNU readline config --
+
+# Vi mode
+set editing-mode vi
+
+# Indicate insert/command mode
+set show-mode-in-prompt on
+
+# Bar cursor for insert, block cursor for command
+set vi-ins-mode-string \1\e[6 q\2
+set vi-cmd-mode-string \1\e[2 q\2
+
+# Faster response when pressing escape
+set keyseq-timeout 100

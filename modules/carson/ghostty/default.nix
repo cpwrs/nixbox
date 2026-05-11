@@ -3,7 +3,7 @@
     users.users.carson.packages = [pkgs.ghostty];
     hjem.users.carson.xdg.config.files = {
       "ghostty/config" = {
-        source = ./.ghostty;
+        source = ./config;
         clobber = true;
       };
     };

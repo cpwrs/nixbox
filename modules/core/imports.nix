@@ -5,5 +5,7 @@
     nix
     age
     yubikey
+    man
+    direnv
   ];
 }
