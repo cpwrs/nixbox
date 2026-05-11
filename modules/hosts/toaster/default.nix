@@ -13,6 +13,7 @@ in {
     modules = with config.flake.modules.nixos; [
       core
       toaster
+      carson
       desktop
       dev
       nvidia

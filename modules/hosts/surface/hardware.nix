@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.modules.nixos.surface = {
+  flake.modules.nixos.surface = {config, ...}: {
     imports = [
       inputs.nixos-hardware.nixosModules.microsoft-surface-common
     ];
@@ -42,6 +42,7 @@
       nvidia = {
         open = false;
         modesetting.enable = true;
+        package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
       };
     };
   };

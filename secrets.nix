@@ -1,7 +1,9 @@
+# TODO: Consider moving to agenix-rekey to avoid this
 let
   inherit
     (builtins)
     attrNames
+    attrValues
     concatMap
     filter
     listToAttrs
@@ -29,16 +31,12 @@ let
 
   isAge = name: match ".*\\.age$" name != null;
 
-  hosts = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJBm+MfqJdf0kjwRzT3QPr4srZmYWl5qBbSIgPNLkkXM root@toaster"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM5al1hlsLRpQxkMaGen3IMFKHSdmW1EhiIwEU/nP0iw root@surface"
-  ];
-  carsons = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID9+4cvvVu5SOVi1/rxU6xhUcBAhW9frDaE0TI5MXrIX carson@toaster"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFzh/HEQgeasLpvfHLPSqDNpxjFwMdTIRjZoLkfKDm8x carson@surface"
-  ];
+  keys =
+    (import ./modules/keys.nix {
+      self = keys;
+    }).flake;
 
-  allKeys = hosts ++ carsons;
+  allKeys = attrValues keys.hosts ++ attrValues keys.carsons;
 
   moduleSecrets = map (path: {
     name = path;

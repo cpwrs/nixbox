@@ -52,7 +52,7 @@
         description = "Increase screen brightness";
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = "${pkgs.brightnessctl}/bin/brightnessctl set +${cfg.step}";
+          ExecStart = "${lib.getExe pkgs.brightnessctl} set +${cfg.step}";
         };
       };
 
@@ -60,7 +60,7 @@
         description = "Decrease screen brightness";
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = "${pkgs.brightnessctl}/bin/brightnessctl set ${cfg.step}-";
+          ExecStart = "${lib.getExe pkgs.brightnessctl} set ${cfg.step}-";
         };
       };
     };

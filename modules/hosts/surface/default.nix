@@ -13,6 +13,7 @@ in {
     modules = with config.flake.modules.nixos; [
       core
       surface
+      carson
       desktop
       dev
     ];
