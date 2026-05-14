@@ -69,7 +69,7 @@
         clobber = true;
         generator = toYAML {};
         value = {
-          "gui" = {
+          gui = {
             border = "single";
             theme = {
               activeBorderColor = ["#aa93ff" "bold"];
@@ -77,6 +77,7 @@
               searchingActiveBorderColor = ["white"];
             };
           };
+          git.overrideGpg = true;
         };
       };
     };
