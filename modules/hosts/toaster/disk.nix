@@ -19,20 +19,28 @@
           root = {
             size = "100%";
             content = {
-              type = "btrfs";
-              extraArgs = ["-f"];
-              subvolumes = {
-                "@" = {
-                  mountpoint = "/";
-                  mountOptions = ["compress=zstd" "noatime"];
-                };
-                "@home" = {
-                  mountpoint = "/home";
-                  mountOptions = ["compress=zstd" "noatime"];
-                };
-                "@nix" = {
-                  mountpoint = "/nix";
-                  mountOptions = ["compress=zstd" "noatime"];
+              type = "luks";
+              name = "cryptroot";
+              settings = {
+                allowDiscards = true;
+              };
+
+              content = {
+                type = "btrfs";
+                extraArgs = ["-f"];
+                subvolumes = {
+                  "@" = {
+                    mountpoint = "/";
+                    mountOptions = ["compress=zstd" "noatime"];
+                  };
+                  "@home" = {
+                    mountpoint = "/home";
+                    mountOptions = ["compress=zstd" "noatime"];
+                  };
+                  "@nix" = {
+                    mountpoint = "/nix";
+                    mountOptions = ["compress=zstd" "noatime"];
+                  };
                 };
               };
             };
