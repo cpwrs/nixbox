@@ -31,10 +31,7 @@ let
 
   isAge = name: match ".*\\.age$" name != null;
 
-  keys =
-    (import ./modules/keys.nix {
-      self = keys;
-    }).flake;
+  keys = (import ./modules/keys.nix {}).flake.keys;
 
   allKeys = attrValues keys.hosts ++ attrValues keys.carsons;
 
