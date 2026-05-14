@@ -3,9 +3,14 @@
     network
     root
     nix
-    age
     yubikey
     man
     direnv
+    sound
+    upower
+    bluetooth
+    fonts
+    disko
+    age
   ];
 }

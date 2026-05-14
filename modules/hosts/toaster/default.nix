@@ -15,8 +15,6 @@ in {
       core
       carson
       desktop
-      nvidia
-      disko
     ];
   };
 

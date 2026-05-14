@@ -20,10 +20,7 @@
           connectivity = {uri = "http://nmcheck.gnome.org/check_network_status.txt";};
         };
       };
-      firewall = {
-        enable = true;
-        interfaces.tailscale0.allowedTCPPorts = [22];
-      };
+      firewall.enable = true;
     };
   };
 }
