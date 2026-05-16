@@ -12,7 +12,14 @@
         noto-fonts-color-emoji
       ];
 
-      fontconfig.enable = false;
+      fontconfig = {
+        defaultFonts = {
+          serif = ["DejaVu Serif"];
+          sansSerif = ["DejaVu Sans"];
+          monospace = ["JetBrainsMono Nerd Font"];
+          emoji = ["Noto Color Emoji"];
+        };
+      };
     };
 
     console = {
